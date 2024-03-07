@@ -33,7 +33,7 @@ var makeTagVars = (tag) => {
 
 var makeTag = (tagId) => {
     var tag = tagData[tagId];
-    return `<a class="tag bgsync hbg-outline" href="./tags/${tag.id}.html" style="--hbg-svg: ${makeTagHBG(tag)}; ${makeTagVars(tag)}">${tag.name}</a>`;
+    return `<a class="tag bgsync hbg-outline" href="/tags/${tag.id}.html" style="--hbg-svg: ${makeTagHBG(tag)}; ${makeTagVars(tag)}">${tag.name}</a>`;
 }
 
 module.exports = {
