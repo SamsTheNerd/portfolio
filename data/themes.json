@@ -1,9 +1,8 @@
 {
     "blue": {
-        "extralight": "#677ce5",
-        "light": "#5c6fcc",
-        "mid": "#4759b3",
-        "dark": "#364699"
+        "light": "#5975ff",
+        "mid": "#4560e5",
+        "dark": "#334dcc"
     },
     "green": {
         "light": "#5ccc83",
@@ -11,14 +10,9 @@
         "dark": "#369958"
     },
     "red": {
-        "light": "#cc5c5c",
-        "mid": "#b34747",
-        "dark": "#993636"
-    },
-    "vibred": {
-        "light": "#d94c4c",
-        "mid": "#bf3939",
-        "dark": "#a62929"
+        "light": "#f25555",
+        "mid": "#d94141",
+        "dark": "#bf3030"
     },
     "pink": {
         "light": "#cc5cbb",

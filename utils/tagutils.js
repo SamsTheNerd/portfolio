@@ -4,15 +4,30 @@ const themes = require("../data/themes.json")
 
 const defTagTheme = "blue";
 
+var getTheme = (tag) => {
+    if(tag.theme == undefined){
+        return themes[defTagTheme];
+    }
+    if(typeof tag.theme == "number"){
+        return {
+            "light": `hsl(${tag.theme}, 86%, 64%)`,
+            "mid": `hsl(${tag.theme}, 66%, 55%)`,
+            "dark": `hsl(${tag.theme}, 60%, 46%)`
+        }
+    }
+    if(typeof tag.theme == "string"){
+        return themes[tag.theme];
+    }
+    return tag.theme;
+}
+
 var makeTagHBG = (tag) => {
-    var themeId = tag.theme || "blue";
-    var theme = themes[themeId];
+    var theme = getTheme(tag);
     return siteUtils.hbgSVG(theme.light, theme.dark, theme.mid);
 }
 
 var makeTagVars = (tag) => {
-    var themeId = tag.theme || "blue";
-    var theme = themes[themeId];
+    var theme = getTheme(tag);
     return `--tag-back: ${theme.light}; --tag-hearts: ${theme.dark}; --tag-mid: ${theme.mid};`;
 }
 

@@ -3,20 +3,5 @@
         "id": "mc-modding",
         "name": "Minecraft Modding",
         "theme": "green"
-    },
-    "test-1":{
-        "id": "test-1",
-        "name": "Test Red",
-        "theme": "vibred"
-    },
-    "test-2":{
-        "id": "test-2",
-        "name": "Test Blue",
-        "theme": "red"
-    },
-    "test-3":{
-        "id": "test-3",
-        "name": "Test Pink",
-        "theme": "pink"
     }
 }

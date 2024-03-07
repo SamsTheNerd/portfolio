@@ -43,7 +43,7 @@ var generateAll = () => {
     tagKeys = Object.keys(tags);
     for(var t = 0; t < tagKeys.length; t++){
         var tag = tags[tagKeys[t]]
-        var tagHtml = generateProjectPage(tag);
+        var tagHtml = generateTagPage(tag);
         try{
             fs.writeFileSync(`./tags/${tag.id}.html`, tagHtml);
         } catch (err) {
