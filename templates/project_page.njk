@@ -1,3 +1,15 @@
 {% extends "page.njk" %}
 
 {% block title %}{{ project.name }}{% endblock %}
+
+{% block maincontent %}
+    {% if project.banner %}
+        {{ project.banner | mkImg("banner") }}
+    {% endif %}
+    <h1 id="page-title">{{ project.name}}</h1>
+    <div class="tag-shelf">
+        {% for tagId in project.tags %}
+            {{ tagId | mkTag }}
+        {% endfor %}
+    </div>
+{% endblock %}

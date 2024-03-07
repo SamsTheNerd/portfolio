@@ -2,7 +2,9 @@
 :root{
     --sam-green: #69eb96;
     --sam-pink: #eb69d7;
+    --pale-pink: #ebd3e7;
     --dark-background: #18161A;
+    --heart-mid-shadow: #1C1B1F;
     --lighter-dark: #242226;
 }
 
@@ -10,41 +12,56 @@ body{
     font-family: Helvetica, sans-serif;
     margin-left: 0;
     margin-right: 0;
-
-    background-image: url("./assets/HeartBackground.png") !important;
+    --hbg-svg: url("./assets/HeartBackground.svg") !important;
+    background-image: url("./assets/HeartBackground.svg") !important;
     background-size: 200px;
     background-position: 0 0;
     background-repeat: repeat;
     background-attachment: local;
-    color: white;
+    color: var(--pale-pink);
+}
+
+.hbg {
+    background-image: var(--hbg-svg);
+    background-size: 200px;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-attachment: local;
+}
+
+.hbg-outline{
+    background-image: url("./assets/HeartBackgroundBlurred.png") !important;
+    background-size: 200px;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-attachment: local;
+    position: relative;
+}
+
+.hbg-outline::before {
+    background-image: var(--hbg-svg);
+    background-size: 200px;
+    --gradWidth: 6px;
+    background-position-x: calc(var(--bg-x) + var(--gradWidth)/2);
+    background-position-y: calc(var(--bg-y) + var(--gradWidth)/2);
+    background-repeat: repeat;
+    background-attachment: local;
+    z-index: -1;
+    content: "";
+    position: absolute;
+    left: calc(-1 * var(--gradWidth)/2);
+    top: calc(-1 * var(--gradWidth)/2);
+    width: calc(100% + var(--gradWidth));
+    height: calc(100% + var(--gradWidth));
+    border-radius: calc(var(--this-border-radius) + var(--gradWidth) / 2);
 }
 
 md-block strong{
     color: var(--sam-pink);
 }
 
-::-webkit-scrollbar {
-  height: 12px;
-  width: 12px;
-  background: var(--lighter-dark);
-}
-
-::-webkit-scrollbar-thumb {
-  /* background: var(--sam-green); */
-  background-image: url("./assets/HeartBackground.png");
-    background-size: 200px;
-    background-position: 0 0;
-    background-repeat: repeat;
-  -webkit-border-radius: 1ex;
-  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    filter:brightness(1.2);
-}
-
-::-webkit-scrollbar-corner {
-  background: #1A1A1A;
+svg{
+    overflow: visible;
 }
 
 ::-moz-selection { /* Code for Firefox */
@@ -59,6 +76,10 @@ md-block strong{
 
 .blurry{
     backdrop-filter: blur(5px);
+}
+
+h1 {
+    font-size: 4rem;
 }
 
 h2{
@@ -93,6 +114,27 @@ h2{
 
 #intro-text{
     width: 60%;
+}
+
+#cs-test{
+    width: 60%;
+    margin-bottom: 5vw;
+    height: 50vw;
+    color: blue;
+}
+
+#hearts{
+    fill: var(--sam-green);
+}
+
+#cs-test svg{
+    left: 10vw;
+    position: absolute;
+}
+
+#hbg-test{
+    width: 10vw;
+    height: 10vw;
 }
 
 .card{
@@ -149,4 +191,70 @@ h2{
     z-index: -1;
     opacity: var(--backOpacity);
     transition: opacity 0.25s;
+}
+
+#main-content{
+    width: 70vw;
+    left: 15vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner{
+    max-width: 100%;
+    max-height: 30rem;
+}
+
+#page-title{
+    min-width: 70%;
+    border-bottom: solid var(--pale-pink);
+    text-align: center;
+    padding-bottom: .5%;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tag-shelf{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.tag{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.5rem;
+    --extra-space: 0;
+    font-size: 1.5rem;
+    --this-border-radius: 2rem;
+    border-radius: var(--this-border-radius);
+    transition-duration: 250ms;
+    transition-property: color;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0.5rem;
+    color: var(--tag-back);
+    text-decoration: none;
+}
+
+.tag:hover{
+    color: color-mix(in srgb, var(--tag-back), white 10%);
+}
+
+.tag::before{
+    transition-duration: 250ms;
+    transition-property: filter;
+}
+
+.tag:hover::before{
+    filter: brightness(1.2);
+}
+
+.tag::selection{
+    background: var(--tag-back);
 }

@@ -1,8 +1,9 @@
-[
-    {
+{
+    "hexgloop": {
         "name": "Hex Gloop",
         "id": "hexgloop",
-        "tags": ["mc-modding"],
+        "tags": ["mc-modding", "test-1", "test-2", "test-3"],
+        "banner": "hexgloop/titlecard.png",
         "description": "An addon mod for Hex Casting known for its QoL improvements and new mechanics."
     }
-]
+}
