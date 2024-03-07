@@ -14,8 +14,8 @@ body{
     font-family: Helvetica, sans-serif;
     margin-left: 0;
     margin-right: 0;
-    --hbg-svg: url("./assets/HeartBackground.svg") !important;
-    background-image: url("./assets/HeartBackground.svg") !important;
+    --hbg-svg: url("/assets/HeartBackground.svg") !important;
+    background-image: url("/assets/HeartBackground.svg") !important;
     background-size: 200px;
     background-position: 0 0;
     background-repeat: repeat;
@@ -34,7 +34,7 @@ body{
 }
 
 .hbg-outline{
-    background-image: url("./assets/HeartBackgroundBlurred.png") !important;
+    background-image: url("/assets/HeartBackgroundBlurred.png") !important;
     background-size: 200px;
     background-position: 0 0;
     background-repeat: repeat;
@@ -97,7 +97,7 @@ center {
 }
 
 #navbar{
-    background-image: url("./assets/HeartBackgroundBlurred.png") !important;
+    background-image: url("/assets/HeartBackgroundBlurred.png") !important;
     background-size: 200px;
     background-position: 0 0;
     background-repeat: repeat;
@@ -158,7 +158,7 @@ center {
     margin-bottom: 10%;
     display: flex;
     flex-direction: column;
-    background-image: url("./assets/HeartBackgroundVeryBlurred.png");
+    background-image: url("/assets/HeartBackgroundVeryBlurred.png");
     background-size: 200px;
     background-repeat: repeat;
     /* background-origin: border-box; */

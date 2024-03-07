@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const nunjucks = require("nunjucks")
-const projects = require("../data/projects.json")
-const tags = require("../data/tags.json")
+const projects = require("../static/data/projects.json")
+const tags = require("../static/data/tags.json")
 const njkFilters = require("../templates/filters.js")
 
 // returns HTML string
@@ -17,14 +17,13 @@ var generateTagPage = (tagData) => {
 var generateAll = () => {
     // delete existing files
     try{
-        if(fs.existsSync("./projects")){
-            fs.rmSync('./projects', { recursive: true, force: true });
+        if(fs.existsSync("./_site")){
+            fs.rmSync('./_site', { recursive: true, force: true });
         }
-        fs.mkdirSync("./projects");
-        if(fs.existsSync("./tags")){
-            fs.rmSync('./tags', { recursive: true, force: true });
-        }
-        fs.mkdirSync("./tags");
+        fs.mkdirSync("./_site");
+        fs.cpSync("./static", "./_site", {recursive: true})
+        fs.mkdirSync("./_site/projects");
+        fs.mkdirSync("./_site/tags");
     } catch (err) {
         console.error(err);
     }
@@ -35,7 +34,7 @@ var generateAll = () => {
         var project = projects[projectKeys[p]]
         var projectHtml = generateProjectPage(project);
         try{
-            fs.writeFileSync(`./projects/${project.id}.html`, projectHtml);
+            fs.writeFileSync(`./_site/projects/${project.id}.html`, projectHtml);
         } catch (err) {
             console.log(err);
         }
@@ -45,7 +44,7 @@ var generateAll = () => {
         var tag = tags[tagKeys[t]]
         var tagHtml = generateTagPage(tag);
         try{
-            fs.writeFileSync(`./tags/${tag.id}.html`, tagHtml);
+            fs.writeFileSync(`./_site/tags/${tag.id}.html`, tagHtml);
         } catch (err) {
             console.log(err);
         }

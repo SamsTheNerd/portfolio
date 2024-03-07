@@ -1,5 +1,5 @@
-const altTexts = require("../assets/alttexts.json")
-const cfIds = require("../data/curseforgeids.json")
+const altTexts = require("../static/assets/alttexts.json")
+const cfIds = require("../static/data/curseforgeids.json")
 const siteUtils = require("../utils/siteutils.js")
 const tagUtils = require("../utils/tagutils.js")
 

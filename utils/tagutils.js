@@ -1,6 +1,6 @@
 const siteUtils = require("./siteutils.js")
-const tagData = require("../data/tags.json")
-const themes = require("../data/themes.json")
+const tagData = require("../static/data/tags.json")
+const themes = require("../static/data/themes.json")
 
 const defTagTheme = "blue";
 

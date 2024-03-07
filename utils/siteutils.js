@@ -8,7 +8,7 @@ var makeHeartBGSVG = (backColor, heartColor, heartShadowColor) => {
 }
 
 var getDescription = (descriptable) => {
-    var descFile = `./data/descriptions/${descriptable.description || (descriptable.id + ".md")}`
+    var descFile = `./static/data/descriptions/${descriptable.description || (descriptable.id + ".md")}`
     var rawDesc = fs.readFileSync(descFile, 'utf8');
     return nunjucks.renderString(rawDesc, descriptable);
 }
