@@ -1,7 +1,13 @@
 {% extends "page.njk" %}
+{% import "cards.njk" as cards %}
 
 {% block title %}{{ tag.name }}{% endblock %}
 
 {% block maincontent %}
     <h1 id="page-title">{{ tag.name}}</h1>
+    <div class="card-holder">
+        {% for project in tag.id | getProjects %}
+            {{ cards.mkProjCard(project) }}
+        {% endfor %}
+    </div>
 {% endblock %}

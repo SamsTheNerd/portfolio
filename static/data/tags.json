@@ -3,5 +3,15 @@
         "id": "mc-modding",
         "name": "Minecraft Modding",
         "theme": "green"
+    },
+    "software": {
+        "id": "software",
+        "name": "Software",
+        "theme": "blue"
+    },
+    "art": {
+        "id": "art",
+        "name": "Art",
+        "theme": "red"
     }
 }

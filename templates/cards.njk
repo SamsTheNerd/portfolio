@@ -1,0 +1,16 @@
+
+
+{% macro mkProjCard(project) %}
+<a class="project-card card bgsync" href="/projects/{{ project.id }}">
+    {% if project.keyart %}
+        <div class="proj-card-keyart-holder">
+            {{ project.keyart | mkImg("project-card-keyart") }}
+        </div>
+    {% endif %}
+    {% if project.icon and not project.keyart %}
+            {{ project.icon | mkImg("project-card-icon") }}
+    {% endif %}
+    <div class="project-card-title">{{ project.name }}</div>
+    <p class="project-card-summary">{{ project.summary }}</p>
+</a>
+{% endmacro %}

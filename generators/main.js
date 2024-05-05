@@ -4,14 +4,24 @@ const projects = require("../static/data/projects.json")
 const tags = require("../static/data/tags.json")
 const njkFilters = require("../templates/filters.js")
 
+
+var ctx = {
+    "currentDateTime": new Date().toLocaleString()
+}
+
 // returns HTML string
 var generateProjectPage = (projectData) => {
-    return nunjucks.render("project_page.njk", {project: projectData});
+    return nunjucks.render("project_page.njk", {project: projectData, ctx: ctx});
 }
 
 // returns HTML string
 var generateTagPage = (tagData) => {
-    return nunjucks.render("tag_page.njk", {tag: tagData});
+    return nunjucks.render("tag_page.njk", {tag: tagData, ctx: ctx});
+}
+
+// returns HTML string
+var generateMainPage = () => {
+    return nunjucks.render("main_page.njk", {ctx: ctx});
 }
 
 var generateAll = () => {
@@ -29,12 +39,25 @@ var generateAll = () => {
     }
     var njkenv = nunjucks.configure('templates', { autoescape: false });
     njkFilters.initFilters(njkenv);
+
+    var mainHtml = generateMainPage();
+    try{
+        fs.writeFileSync(`./_site/index.html`, mainHtml);
+    } catch (err) {
+        console.log(err);
+    }
+    
     projectKeys = Object.keys(projects);
     for(var p = 0; p < projectKeys.length; p++){
         var project = projects[projectKeys[p]]
         var projectHtml = generateProjectPage(project);
         try{
-            fs.writeFileSync(`./_site/projects/${project.id}.html`, projectHtml);
+            fs.mkdirSync(`./_site/projects/${project.id}`, { recursive: true});
+        } catch (err) {
+            console.log(err);
+        }
+        try{
+            fs.writeFileSync(`./_site/projects/${project.id}/index.html`, projectHtml);
         } catch (err) {
             console.log(err);
         }
@@ -44,7 +67,12 @@ var generateAll = () => {
         var tag = tags[tagKeys[t]]
         var tagHtml = generateTagPage(tag);
         try{
-            fs.writeFileSync(`./_site/tags/${tag.id}.html`, tagHtml);
+            fs.mkdirSync(`./_site/tags/${tag.id}`, { recursive: true});
+        } catch (err) {
+            console.log(err);
+        }
+        try{
+            fs.writeFileSync(`./_site/tags/${tag.id}/index.html`, tagHtml);
         } catch (err) {
             console.log(err);
         }

@@ -16,11 +16,16 @@ body{
     margin-right: 0;
     --hbg-svg: url("./assets/HeartBackground.svg") !important;
     background-image: url("./assets/HeartBackground.svg") !important;
+    background-color: var(--dark-background);
     background-size: 200px;
     background-position: 0 0;
     background-repeat: repeat;
     background-attachment: local;
     margin-top: 0;
+    margin-bottom: 0;
+}
+
+* {
     font-size: 1.25rem;
     color: var(--pale-pink);
 }
@@ -104,17 +109,35 @@ center {
     background-attachment: local;
     box-shadow: 0 0 1rem 0rem var(--sam-green);
     width: 100%;
-    height: 3rem;
+    height: 4rem;
     margin-bottom: 2rem;
     top: 0;
     position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link{
+    --gradWidth: 0.1em;
+    padding-left: 0.9em;
+    padding-right: 0.9em;
+    padding-top: 0.35em;
+    padding-bottom: 0.25em;
+    border-radius: 2em;
+    color: var(--lighter-dark);
+    text-shadow: 1px 1px 1px var(--theme-light),
+         -1px -1px 1px var(--theme-light);
+    font-size: 1.75rem;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 2rem;
 }
 
 #intro-section{
-    position: absolute;
+    position: relative;
     width: 80vw;
     left: 10vw;
-    top:5vw;
+    top: 2vw;
     display: flex;
     align-items: center;
     flex-direction: column;;
@@ -203,6 +226,7 @@ center {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
 .banner{
@@ -235,6 +259,7 @@ center {
 
 .project-desc{
     min-width: 80%;
+    position:relative;
 }
 
 .tag-shelf{
@@ -259,13 +284,13 @@ center {
     cursor: pointer;
     font-weight: bold;
     margin: 0.5rem;
-    color: var(--tag-back);
+    color: var(--theme-light);
     text-decoration: none;
     text-align: center;
 }
 
 .tag:hover{
-    color: color-mix(in srgb, var(--tag-back), white 10%);
+    color: color-mix(in srgb, var(--theme-light), white 10%);
 }
 
 .tag::before{
@@ -278,9 +303,77 @@ center {
 }
 
 .tag::selection{
-    background: var(--tag-back);
+    background: var(--theme-dark);
 }
 
 .shield{
     margin: 0.5rem;
+}
+
+.card-holder{
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-auto-flow: row;
+    justify-content: space-between;
+    --card-width: 20vw;
+    grid-template-columns: var(--card-width) var(--card-width) var(--card-width);
+}
+
+.project-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition-duration: 250ms;
+    transition-property: margin, padding, width;
+    width: 100%;
+    text-decoration: none;
+}
+
+.project-card:hover{
+    width: calc(var(--card-width) + 2vw);
+    margin-left: -1vw;
+}
+
+.proj-card-keyart-holder{
+    width: 100%;
+    border-radius: inherit;
+    overflow: hidden;
+    height: var(--card-width);
+    display: grid;
+    justify-content: center;
+}
+
+.project-card-keyart{
+    height: var(--card-width);
+    width: calc(var(--card-width) + 2vw);
+    position: relative;
+    border-radius: inherit;
+    object-fit: cover;
+    transition-duration: inherit;
+    transition-property: width, left;
+}
+
+.project-card-icon{
+    width: 40%;
+    border-radius: 10%;
+    box-shadow: 0 0 1rem -0.2rem var(--sam-green);
+    margin-top: 2em;
+}
+
+.project-card-title{
+    min-width: 80%;
+    max-width: 90%;
+    margin-top: 0.5em;
+    font-size: 2em;
+    padding-bottom: 0.1em;
+    border-bottom: solid var(--pale-pink);
+    text-align: center;
+}
+
+.project-card-summary{
+    margin-top: 0.5em;
+    text-align: left;
+    max-width: 80%;
+    margin-bottom: 0.5em;
 }

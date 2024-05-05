@@ -1,5 +1,8 @@
 const fs = require('node:fs');
 const nunjucks = require("nunjucks")
+const themes = require("../static/data/themes.json")
+
+const defTagTheme = "blue";
 
 // returns a url(..) string
 var makeHeartBGSVG = (backColor, heartColor, heartShadowColor) => {
@@ -7,13 +10,49 @@ var makeHeartBGSVG = (backColor, heartColor, heartShadowColor) => {
     return `url('data:image/svg+xml;base64,${btoa(svgString)}')`
 }
 
+var getTheme = (theme) => {
+    if(theme == undefined){
+        return themes[defTagTheme];
+    }
+    if(typeof theme == "number"){
+        return {
+            "light": `hsl(${theme}, 86%, 64%)`,
+            "mid": `hsl(${theme}, 66%, 55%)`,
+            "dark": `hsl(${theme}, 60%, 46%)`
+        }
+    }
+    if(typeof theme == "string"){
+        return themes[theme];
+    }
+    return theme;
+}
+
+
+var makeThemedHBG = (themeIsh) => {
+    var theme = getTheme(themeIsh);
+    return makeHeartBGSVG(theme.light, theme.dark, theme.mid);
+}
+
+var makeThemedVars = (themeIsh) => {
+    var theme = getTheme(themeIsh);
+    return `--theme-light: ${theme.light}; --theme-dark: ${theme.dark}; --theme-mid: ${theme.mid};`;
+}
+
+
 var getDescription = (descriptable) => {
     var descFile = `./static/data/descriptions/${descriptable.description || (descriptable.id + ".md")}`
-    var rawDesc = fs.readFileSync(descFile, 'utf8');
-    return nunjucks.renderString(rawDesc, descriptable);
+    try {
+        var rawDesc = fs.readFileSync(descFile, 'utf8');
+        return nunjucks.renderString(rawDesc, descriptable);
+    } catch (err) {
+        return "";
+    }
 }
 
 module.exports = {
     "hbgSVG": makeHeartBGSVG,
-    "getDesc": getDescription
+    "getDesc": getDescription,
+    "getTheme": getTheme,
+    "makeThemedHBG": makeThemedHBG,
+    "makeThemedVars": makeThemedVars
 }

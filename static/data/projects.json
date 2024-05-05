@@ -2,9 +2,16 @@
     "hexgloop": {
         "name": "Hex Gloop",
         "id": "hexgloop",
-        "tags": ["mc-modding"],
+        "tags": ["mc-modding", "software"],
         "banner": "hexgloop/titlecard.png",
         "icon": "hexgloop/icon.png",
         "summary": "An addon mod for Hex Casting known for its QoL improvements and new mechanics."
+    },
+    "benchtypography": {
+        "name": "Bench",
+        "id": "benchtypography",
+        "tags": ["art"],
+        "keyart": "typography/BenchFinal.png",
+        "summary": "Placeholder"
     }
 }

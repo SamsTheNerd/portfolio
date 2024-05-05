@@ -5,9 +5,7 @@ const tagUtils = require("../utils/tagutils.js")
 
 
 // classesOpt - classes to give to the image
-// nsDirOpt - how many directories nested we are, defaults to 1 for projects (TODO: change this to 2 if we put each page in its own folder)
-var makeImage = (src, classesOpt, nsDirsOpt) => {
-    var nsDirs = nsDirsOpt || 1;
+var makeImage = (src, classesOpt) => {
     var classesArray = classesOpt || []
     var classes = classesArray;
     try{
@@ -16,11 +14,7 @@ var makeImage = (src, classesOpt, nsDirsOpt) => {
     var url = src;
     var alt = "";
     if(src.substring(0, 4) != "http"){
-        var urlStart = "./";
-        if(nsDirs > 0){
-            urlStart = "../".repeat(nsDirs);
-        }
-        url = urlStart + "assets/" + src;
+        url = "/assets/" + src;
     }
     if(altTexts[src]){
         alt = altTexts[src];
@@ -31,6 +25,8 @@ var makeImage = (src, classesOpt, nsDirsOpt) => {
 var initFilters = (env) => {
     env.addFilter("mkImg", makeImage);
     env.addFilter("mkHBG", siteUtils.hbgSVG);
+    env.addFilter("themedHBG", siteUtils.makeThemedHBG);
+    env.addFilter("themedVars", siteUtils.makeThemedVars);
     env.addFilter("mkTag", tagUtils.makeTag);
     env.addFilter("getDesc", siteUtils.getDesc);
     env.addFilter("modrinthShield", (slug) => {
@@ -40,6 +36,7 @@ var initFilters = (env) => {
         var id = cfIds[slug] || "error";
         return `<a class="shield cf-shield" target="_blank" href="https://www.curseforge.com/minecraft/mc-mods/${slug}"><img alt="CurseForge Downloads for ${slug}" src="https://img.shields.io/curseforge/dt/${id}?style=for-the-badge&logo=curseforge&logoColor=white&color=%23F16436"></a>`
     })
+    env.addFilter("getProjects", tagUtils.getProjects);
 }
 
 
