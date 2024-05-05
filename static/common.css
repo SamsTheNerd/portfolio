@@ -273,8 +273,8 @@ center {
 .tag{
     padding-left: 0.85rem;
     padding-right: 0.85rem;
-    padding-top: 0.7rem;
-    padding-bottom: 0.45rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.35rem;
     --extra-space: 0;
     font-size: 1.5rem;
     --this-border-radius: 2rem;

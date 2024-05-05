@@ -47,6 +47,7 @@ var generateAll = () => {
         console.log(err);
     }
     
+    // make each project page
     projectKeys = Object.keys(projects);
     for(var p = 0; p < projectKeys.length; p++){
         var project = projects[projectKeys[p]]
@@ -62,6 +63,20 @@ var generateAll = () => {
             console.log(err);
         }
     }
+    // make full project page
+    var fakeAllTag = {
+        "id": "",
+        "name": "Projects",
+        "color": "green"
+    }
+    var fakeAllTagHtml = generateTagPage(fakeAllTag);
+    try{
+        fs.writeFileSync(`./_site/projects/index.html`, fakeAllTagHtml);
+    } catch (err) {
+        console.log(err);
+    }
+
+    // make tag pages
     tagKeys = Object.keys(tags);
     for(var t = 0; t < tagKeys.length; t++){
         var tag = tags[tagKeys[t]]
