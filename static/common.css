@@ -26,7 +26,7 @@ body{
 }
 
 * {
-    font-size: 1.25rem;
+    font-size: calc(1vw + 6px);
     color: var(--pale-pink);
 }
 
@@ -118,49 +118,19 @@ center {
 }
 
 .nav-link{
-    --gradWidth: 0.1em;
-    padding-left: 0.9em;
-    padding-right: 0.9em;
-    padding-top: 0.35em;
-    padding-bottom: 0.25em;
-    border-radius: 2em;
+    --gradWidth: 0.1rem;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+    padding-top: 0.35rem;
+    padding-bottom: 0.25rem;
+    border-radius: 2rem;
     color: var(--lighter-dark);
     text-shadow: 1px 1px 1px var(--theme-light),
          -1px -1px 1px var(--theme-light);
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     text-decoration: none;
     font-weight: bold;
     margin-left: 2rem;
-}
-
-#intro-section{
-    position: relative;
-    width: 80vw;
-    left: 10vw;
-    top: 2vw;
-    display: flex;
-    align-items: center;
-    flex-direction: column;;
-}
-
-#sam-pfp{
-    width: calc(25% + var(--current-pfp-size));
-    --current-pfp-size: 0px;
-    --extra-pfp-size: 10px;
-    margin-top: calc(var(--extra-pfp-size) / 2  - var(--current-pfp-size) / 2);
-    border-radius: 10%;
-    box-shadow: 0 0 1.5vw -0.2vw var(--sam-green);
-    transition-duration: 500ms;
-    margin-bottom: calc(var(--extra-pfp-size) / 2  - var(--current-pfp-size) / 2);;
-}
-
-#sam-pfp:hover{
-    --current-pfp-size: var(--extra-pfp-size);
-    box-shadow: 0 0 1.7vw -0.2vw var(--sam-green);
-}
-
-#intro-text{
-    width: 60%;
 }
 
 .card{
@@ -178,7 +148,6 @@ center {
     transition-property: padding-left, margin-left, padding-right, margin-right;
     transition-duration: 0.25s;
     transition-timing-function: ease-in-out;
-    margin-bottom: 10%;
     display: flex;
     flex-direction: column;
     background-image: url("./assets/HeartBackgroundVeryBlurred.png");
@@ -303,7 +272,7 @@ center {
 }
 
 .tag::selection{
-    background: var(--theme-dark);
+    background: var(--theme-light);
 }
 
 .shield{
@@ -328,6 +297,7 @@ center {
     transition-property: margin, padding, width;
     width: 100%;
     text-decoration: none;
+    margin-bottom: 2rem;
 }
 
 .project-card:hover{
@@ -355,10 +325,19 @@ center {
 }
 
 .project-card-icon{
-    width: 40%;
+    width: 6rem;
     border-radius: 10%;
     box-shadow: 0 0 1rem -0.2rem var(--sam-green);
-    margin-top: 2em;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    transition-duration: inherit;
+    transition-property: width, margin;
+}
+
+.project-card:hover .project-card-icon{
+    width: 6.5rem;
+    margin-bottom: 0.25rem;
+    margin-top: 1.75rem;
 }
 
 .project-card-title{

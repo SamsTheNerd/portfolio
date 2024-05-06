@@ -7,10 +7,35 @@
         "icon": "hexgloop/icon.png",
         "summary": "An addon mod for Hex Casting known for its QoL improvements and new mechanics."
     },
+    "ducky-periphs": {
+        "name": "Ducky Peripherals",
+        "id": "ducky-periphs",
+        "tags": ["mc-modding", "software"],
+        "icon": "mcmodmisc/duckyperiphsicon.webp"
+    },
+    "wnboi": {
+        "name": "WNBOI",
+        "id": "wnboi",
+        "tags": ["mc-modding", "software"],
+        "icon": "mcmodmisc/wnboiicon.webp"
+    },
+    "hex-addons": {
+        "name": "Hex Addons",
+        "id": "hex-addons",
+        "tags": ["mc-modding", "graphic-design", "web"],
+        "icon": "mcmodmisc/hexaddonsicon.png"
+    },
+    "quatalog": {
+        "name": "Quatalog",
+        "id": "quatalog",
+        "tags": ["web", "graphic-design"],
+        "icon": "quatalog/icon.png",
+        "banner": "quatalog/banner.png"
+    },
     "benchtypography": {
         "name": "Bench",
         "id": "benchtypography",
-        "tags": ["art"],
+        "tags": ["art", "graphic-design"],
         "keyart": "typography/BenchFinal.png",
         "summary": "Placeholder"
     }

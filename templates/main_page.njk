@@ -1,11 +1,22 @@
 {% extends "page.njk" %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="/home.css">
+{% endblock %}
+
 {% block premain %}
     <div id="intro-section">
-        <img id="sam-pfp" src="./assets/pfp.png">
-        <h2>Sam's Portfolio</h2>
+        {{ "pfp.png" | mkImg("", "sam-pfp")}}
         <div id="intro-text" class="card bgsync">
             
         </div>
+    </div>
+
+    <div id="featured-projects" class="main-page-section">
+        <h2>Featured Projects</h2>
+    </div>
+
+    <div id="tag-browse" class="main-page-section">
+        <h2>Browse By Tags</h2>
     </div>
 {% endblock %}

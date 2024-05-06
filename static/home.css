@@ -1,0 +1,44 @@
+
+#intro-section{
+    position: relative;
+    width: 80vw;
+    left: 10vw;
+    top: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-bottom: 4rem;
+}
+
+#sam-pfp{
+    width: calc(25% + var(--current-pfp-size));
+    --current-pfp-size: 0px;
+    --extra-pfp-size: 10px;
+    border-radius: 10%;
+    box-shadow: 0 0 1.5vw -0.2vw var(--sam-green);
+    transition-duration: 500ms;
+    margin: calc(var(--extra-pfp-size) / 2  - var(--current-pfp-size) / 2);
+}
+
+#sam-pfp:hover{
+    --current-pfp-size: var(--extra-pfp-size);
+    box-shadow: 0 0 1.7vw -0.2vw var(--sam-green);
+}
+
+#intro-text{
+    width: 60%;
+}
+
+.main-page-section{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 80%;
+    left: 10%;
+    position: relative;
+}
+
+.main-page-section h2{
+    text-align: center;
+}

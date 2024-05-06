@@ -12,6 +12,16 @@
     "art": {
         "id": "art",
         "name": "Art",
-        "theme": "red"
+        "theme": "redpink"
+    },
+    "graphic-design": {
+        "id": "graphic-design",
+        "name": "Graphic Design",
+        "theme": "lightblue"
+    },
+    "web": {
+        "id": "web",
+        "name": "Web",
+        "theme": "yellow"
     }
 }

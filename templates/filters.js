@@ -3,9 +3,10 @@ const cfIds = require("../static/data/curseforgeids.json")
 const siteUtils = require("../utils/siteutils.js")
 const tagUtils = require("../utils/tagutils.js")
 
+var alreadyLoggedNoAlt = {}
 
 // classesOpt - classes to give to the image
-var makeImage = (src, classesOpt) => {
+var makeImage = (src, classesOpt, idOpt) => {
     var classesArray = classesOpt || []
     var classes = classesArray;
     try{
@@ -18,8 +19,17 @@ var makeImage = (src, classesOpt) => {
     }
     if(altTexts[src]){
         alt = altTexts[src];
+    } else {
+        if(!alreadyLoggedNoAlt.hasOwnProperty(src)){
+            console.log(`no alt text for ${src}`)
+        }
+        alreadyLoggedNoAlt[src] = true;
     }
-    return `<img class="${classes}" src="${url}" alt="${alt}">`
+    var idString = "";
+    if(idOpt){
+        idString = `id="${idOpt}"`
+    }
+    return `<img ${idString} class="${classes}" src="${url}" alt="${alt}">`
 }
 
 var initFilters = (env) => {

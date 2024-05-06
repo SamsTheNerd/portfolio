@@ -1,15 +1,15 @@
 # Stuff to add to portfolio still:
 
 ## mc mod stuff:
-- gloop (technically added but needs a proper description)
-- ducky 
-- wnboi 
-- hex addons page 
+~ gloop (technically added but needs a proper description)
+~ ducky 
+~ wnboi 
+~ hex addons page 
 - inline (once it's out)
 - cobblecards (once it's out)
 
 ## Web Dev
-- Quatalog
+~ Quatalog
 - Portfolio itself
 
 ## Graphic Design (category, not class)
@@ -32,6 +32,8 @@
 ### Screenprinting
 - garf - questionable 
 - yuki poster - absolutely
+- ocean
+- skirt - maybe finish it first
 
 ### Other
 - Granny's logo/letterhead stuff
