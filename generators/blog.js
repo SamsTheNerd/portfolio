@@ -60,15 +60,15 @@ var getBlogData = (articlePathOpt) => {
         var fullName = `${articlesPathPrefix}/${localName}`;
         if(isFile(fullName)){
             var articleID = FN_TO_ID.exec(localName)[1];
-            BLOG_DATA[articleID] = blogFileToData(fs.readFileSync(fullName, {encoding: 'utf-8'}, localName))
+            BLOG_DATA[articleID] = blogFileToData(fs.readFileSync(fullName, {encoding: 'utf-8'}), articleID)
         } else {
             getBlogData(localName)
         }
     })
 
-    // if(articlePath == ''){
-    //     console.log(BLOG_DATA)
-    // }
+    if(articlePath == ''){
+        // console.log(BLOG_DATA)
+    }
 }
 
 var makeRSS = (articleCount) => {
