@@ -1,5 +1,7 @@
 const fs = require('node:fs');
 const nunjucks = require("nunjucks")
+const genutils = require("./utils.js")
+const Blog = require("./blog.js")
 const projects = require("../static/data/projects.json")
 const tags = require("../static/data/tags.json")
 const njkFilters = require("../templates/filters.js")
@@ -40,28 +42,17 @@ var generateAll = () => {
     var njkenv = nunjucks.configure('templates', { autoescape: false });
     njkFilters.initFilters(njkenv);
 
+    Blog.makeBlog();
+
     var mainHtml = generateMainPage();
-    try{
-        fs.writeFileSync(`./_site/index.html`, mainHtml);
-    } catch (err) {
-        console.log(err);
-    }
+    genutils.writeFile(`./_site`, `index.html`, mainHtml);
     
     // make each project page
     projectKeys = Object.keys(projects);
     for(var p = 0; p < projectKeys.length; p++){
         var project = projects[projectKeys[p]]
         var projectHtml = generateProjectPage(project);
-        try{
-            fs.mkdirSync(`./_site/projects/${project.id}`, { recursive: true});
-        } catch (err) {
-            console.log(err);
-        }
-        try{
-            fs.writeFileSync(`./_site/projects/${project.id}/index.html`, projectHtml);
-        } catch (err) {
-            console.log(err);
-        }
+        genutils.writeFile(`./_site/projects/${project.id}`, `index.html`, projectHtml);
     }
     // make full project page
     var fakeAllTag = {
@@ -70,27 +61,14 @@ var generateAll = () => {
         "color": "green"
     }
     var fakeAllTagHtml = generateTagPage(fakeAllTag);
-    try{
-        fs.writeFileSync(`./_site/projects/index.html`, fakeAllTagHtml);
-    } catch (err) {
-        console.log(err);
-    }
+    genutils.writeFile(`./_site/projects`, `index.html`, fakeAllTagHtml);
 
     // make tag pages
     tagKeys = Object.keys(tags);
     for(var t = 0; t < tagKeys.length; t++){
         var tag = tags[tagKeys[t]]
         var tagHtml = generateTagPage(tag);
-        try{
-            fs.mkdirSync(`./_site/tags/${tag.id}`, { recursive: true});
-        } catch (err) {
-            console.log(err);
-        }
-        try{
-            fs.writeFileSync(`./_site/tags/${tag.id}/index.html`, tagHtml);
-        } catch (err) {
-            console.log(err);
-        }
+        genutils.writeFile(`./_site/tags/${tag.id}`, `index.html`, tagHtml);
     }
 }
 

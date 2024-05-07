@@ -11,32 +11,35 @@
         "name": "Ducky Peripherals",
         "id": "ducky-periphs",
         "tags": ["mc-modding", "software"],
-        "icon": "mcmodmisc/duckyperiphsicon.webp"
+        "icon": "mcmodmisc/duckyperiphsicon.webp",
+        "summary": "An addon mod for computercraft adding ducks, keyboards, and hex casting compat"
     },
     "wnboi": {
         "name": "WNBOI",
         "id": "wnboi",
         "tags": ["mc-modding", "software"],
-        "icon": "mcmodmisc/wnboiicon.webp"
+        "icon": "mcmodmisc/wnboiicon.webp",
+        "summary": "A library mod for radial menus"
     },
     "hex-addons": {
         "name": "Hex Addons",
         "id": "hex-addons",
         "tags": ["mc-modding", "graphic-design", "web"],
-        "icon": "mcmodmisc/hexaddonsicon.png"
+        "icon": "mcmodmisc/hexaddonsicon.png",
+        "summary": "A web collection of all things hexcasting. Addons, interop, tools, and more!"
     },
     "quatalog": {
         "name": "Quatalog",
         "id": "quatalog",
         "tags": ["web", "graphic-design"],
         "icon": "quatalog/icon.png",
-        "banner": "quatalog/banner.png"
+        "banner": "quatalog/banner.png",
+        "summary": "A more useable archive/catalog of RPI courses."
     },
     "benchtypography": {
         "name": "Bench",
         "id": "benchtypography",
         "tags": ["art", "graphic-design"],
-        "keyart": "typography/BenchFinal.png",
-        "summary": "Placeholder"
+        "keyart": "typography/BenchFinal.png"
     }
 }
