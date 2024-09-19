@@ -317,6 +317,8 @@ a {
 
 .project-card:hover{
     width: calc(var(--card-width) + 2vw);
+    /* padding-left: 1vw;
+    padding-right: 1vw; */
     margin-left: -1vw;
 }
 
@@ -368,6 +370,8 @@ a {
 .project-card-summary{
     margin-top: 0.5em;
     text-align: left;
-    max-width: 80%;
+    max-width: calc(var(--card-width) * 0.8);
     margin-bottom: 0.5em;
+    transition-duration: 250ms;
+    transition-property: margin, padding, max-width;
 }
