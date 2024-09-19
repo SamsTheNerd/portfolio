@@ -8,7 +8,7 @@ const njkFilters = require("../templates/filters.js")
 
 
 var ctx = {
-    "currentDateTime": new Date().toLocaleString()
+    "currentDateTime": new Date().toLocaleString('en-US')
 }
 
 // returns HTML string

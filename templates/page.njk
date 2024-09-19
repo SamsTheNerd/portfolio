@@ -24,19 +24,19 @@
     <script type="module" src="https://md-block.verou.me/md-block.js"></script>
 </head>
 <body id="body">
-    <div id="navbar">
+    <nav id="navbar">
         <a id="home-link" class="nav-link hbg bgsync" style="--hbg-svg: {{ 'green' | themedHBG }}; {{ 'green' | themedVars }}" href="/" >Main</a>
         {# <a id="tags-link" class="nav-link hbg bgsync" style="--hbg-svg: {{ 'green' | themedHBG }}; {{ 'green' | themedVars }}" href="/tags/" >Tags</a> #}
         <a id="projects-link" class="nav-link hbg bgsync" style="--hbg-svg: {{ 'green' | themedHBG }}; {{ 'green' | themedVars }}" href="/projects/" >Projects</a>
-    </div>
+    </nav>
     {% block premain %}{% endblock %}
-    <div id="main-content">
+    <main id="main-content">
         {% block maincontent %}{% endblock %}
-    </div>
+    </main>
     {% block postmain %}{% endblock %}
-    {# <div id="footer" class="bgsync">
-        <div id="last-updated">
-            Last Updated {{ ctx.currentDateTime }}
-        </div>
-    </div> #}
+    <footer id="footer" class="bgsync">
+        <p>
+            Site last built from <a href="https://github.com/SamsTheNerd/portfolio" target="/">source</a> on {{ ctx.currentDateTime }} 
+        </p>
+    </footer>
 </body>
