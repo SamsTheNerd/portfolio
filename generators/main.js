@@ -23,7 +23,8 @@ var generateTagPage = (tagData) => {
 
 // returns HTML string
 var generateMainPage = () => {
-    return nunjucks.render("main_page.njk", {ctx: ctx});
+    // console.log(`tags: ${Object.keys(tags)}`);
+    return nunjucks.render("main_page.njk", {ctx: ctx, tags: Object.keys(tags)});
 }
 
 var generateAll = () => {

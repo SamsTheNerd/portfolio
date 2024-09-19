@@ -7,6 +7,13 @@
         "icon": "hexgloop/icon.png",
         "summary": "An addon mod for Hex Casting known for its QoL improvements and new mechanics."
     },
+    "inline": {
+        "name": "Inline",
+        "id": "inline",
+        "tags": ["mc-modding", "software"],
+        "icon": "mcmodmisc/inlineicon.png",
+        "summary": "A minecraft library for rendering in-line with text"
+    },
     "ducky-periphs": {
         "name": "Ducky Peripherals",
         "id": "ducky-periphs",
