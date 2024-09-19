@@ -148,64 +148,9 @@ a {
     margin-left: 2rem;
 }
 
-.card{
-    width: 100%;
-    height: min-content;
-    min-height: 22.5vw;
-    position: relative;
-    --this-border-radius: 1vw;
-    border-radius: var(--this-border-radius);
-    --top-color-base: var(--lighter-dark);
-    --top-color-hover: var(--sam-green);
-    --bottom-color-base: var(--sam-pink);
-    --bottom-color-hover: var(--sam-pink);
-    --backOpacity: 0;
-    transition-property: padding-left, margin-left, padding-right, margin-right;
-    transition-duration: 0.25s;
-    transition-timing-function: ease-in-out;
-    display: flex;
-    flex-direction: column;
-    background-image: url("./assets/HeartBackgroundVeryBlurred.png");
-    background-size: 200px;
-    background-repeat: repeat;
-    /* background-origin: border-box; */
-}
-
-.card:hover{
-    --backOpacity: 1;
-}
-
-.card::before{
-    --gradWidth: 6px;
-    content: "";
-    position: absolute;
-    left: calc(-1 * var(--gradWidth)/2);
-    top: calc(-1 * var(--gradWidth)/2);
-    width: calc(100% + var(--gradWidth));
-    height: calc(100% + var(--gradWidth));
-    border-radius: calc(var(--this-border-radius) + var(--gradWidth) / 2);
-    background: linear-gradient(180deg, var(--top-color-base) 0%, var(--bottom-color-base) 100%);
-    z-index: -2;
-}
-
-.card::after{
-    --gradWidth: 6px;
-    content: "";
-    position: absolute;
-    left: calc(-1 * var(--gradWidth)/2);
-    top: calc(-1 * var(--gradWidth)/2);
-    width: calc(100% + var(--gradWidth));
-    height: calc(100% + var(--gradWidth));
-    border-radius: calc(var(--this-border-radius) + var(--gradWidth) / 2);
-    background: linear-gradient(180deg, var(--top-color-hover) 0%, var(--bottom-color-hover) 100%);
-    z-index: -1;
-    opacity: var(--backOpacity);
-    transition: opacity 0.25s;
-}
-
 #main-content{
-    width: 70vw;
-    left: 15vw;
+    width: 80vw;
+    left: 10vw;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -294,84 +239,24 @@ a {
     margin: 0.5rem;
 }
 
-.card-holder{
-    width: 100%;
-    position: relative;
-    display: grid;
-    grid-auto-flow: row;
-    justify-content: space-between;
-    --card-width: 20vw;
-    grid-template-columns: var(--card-width) var(--card-width) var(--card-width);
+@media (max-aspect-ratio: 10/10){
+    * {
+        font-size: calc(1.5vw + 8px);
+    }
+
+    #main-content{
+        width: 85vw;
+        left: 7.5vw;
+    }
 }
 
-.project-card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition-duration: 250ms;
-    transition-property: margin, padding, width;
-    width: 100%;
-    text-decoration: none;
-    margin-bottom: 2rem;
-}
+@media (max-aspect-ratio: 7/10){
+    * {
+        font-size: calc(2vw + 12px);
+    }
 
-.project-card:hover{
-    width: calc(var(--card-width) + 2vw);
-    /* padding-left: 1vw;
-    padding-right: 1vw; */
-    margin-left: -1vw;
-}
-
-.proj-card-keyart-holder{
-    width: 100%;
-    border-radius: inherit;
-    overflow: hidden;
-    height: var(--card-width);
-    display: grid;
-    justify-content: center;
-}
-
-.project-card-keyart{
-    height: var(--card-width);
-    width: calc(var(--card-width) + 2vw);
-    position: relative;
-    border-radius: inherit;
-    object-fit: cover;
-    transition-duration: inherit;
-    transition-property: width, left;
-}
-
-.project-card-icon{
-    width: 6rem;
-    border-radius: 10%;
-    box-shadow: 0 0 1rem -0.2rem var(--sam-green);
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
-    transition-duration: inherit;
-    transition-property: width, margin;
-}
-
-.project-card:hover .project-card-icon{
-    width: 6.5rem;
-    margin-bottom: 0.25rem;
-    margin-top: 1.75rem;
-}
-
-.project-card-title{
-    min-width: 80%;
-    max-width: 90%;
-    margin-top: 0.5em;
-    font-size: 2em;
-    padding-bottom: 0.1em;
-    border-bottom: solid var(--pale-pink);
-    text-align: center;
-}
-
-.project-card-summary{
-    margin-top: 0.5em;
-    text-align: left;
-    max-width: calc(var(--card-width) * 0.8);
-    margin-bottom: 0.5em;
-    transition-duration: 250ms;
-    transition-property: margin, padding, max-width;
+    #main-content{
+        width: 90vw;
+        left: 4vw;
+    }
 }
