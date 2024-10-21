@@ -29,7 +29,7 @@ body{
 }
 
 * {
-    font-size: calc(1vw + 6px);
+    font-size: calc(1vw + 4px);
     color: var(--pale-pink);
 }
 
@@ -99,6 +99,10 @@ h2{
 h3{
     font-size: 2rem;
     margin-bottom: 0.1rem;
+}
+
+md-block h3{
+    text-decoration: underline;
 }
 
 hr {
@@ -220,6 +224,7 @@ footer *{
 
 .project-desc{
     min-width: 80%;
+    max-width: 80%;
     position:relative;
 }
 
@@ -271,7 +276,7 @@ footer *{
     margin: 0.5rem;
 }
 
-@media (max-aspect-ratio: 10/10){
+@media (max-aspect-ratio: 11/10){
     * {
         font-size: calc(1.5vw + 8px);
     }
@@ -280,6 +285,11 @@ footer *{
         width: 85vw;
         left: 7.5vw;
     }
+
+    .project-desc{
+        max-width: 100%;
+    }
+
 }
 
 @media (max-aspect-ratio: 7/10){
@@ -288,7 +298,7 @@ footer *{
     }
 
     #main-content{
-        width: 90vw;
+        width: 88vw;
         left: 4vw;
     }
 }

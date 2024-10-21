@@ -155,7 +155,7 @@
     }
 }
 
-@media (max-aspect-ratio: 10/10){
+@media (max-aspect-ratio: 11/10){
     .card-holder{
         --card-width: 40vw;
         grid-template-columns: var(--card-width) var(--card-width);
