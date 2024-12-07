@@ -21,7 +21,7 @@ const DATE_GETTER = /<date>\s*(?<month>\d+)(?:\/(?<day>\d+))(?:\/(?<year>\d+))\s
 var blogFileToData = (fileContent, id) => {
     var parsedIsh = META_GETTER.exec(fileContent)
     var metaData = parsedIsh[1]
-    var articleContent = parsedIsh[2]
+    var articleContent = nunjucks.renderString(parsedIsh[2])
     
     var title = TITLE_GETTER.exec(metaData)[1];
     

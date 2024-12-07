@@ -12,6 +12,22 @@ var updateCardOffsets = () => {
     }
 }
 
+var gallerySelect = (galId, idx) => {
+    var imgs = document.getElementById(galId).getElementsByClassName("img-gallery-holder")[0].children;
+    var sels = document.getElementById(galId).getElementsByClassName("img-gallery-selectors")[0].children;
+    for(var i = 0; i < imgs.length; i++){
+        var img = imgs[i];
+        var sel = sels[i];
+        if(i == idx){
+            img.classList.add("gal-sel");
+            sel.classList.add("gal-sel");
+        } else {
+            img.classList.remove("gal-sel");
+            sel.classList.remove("gal-sel");
+        }
+    }
+}
+
 window.onload = () => {
     setInterval(updateCardOffsets, 20);
 }

@@ -1,39 +1,11 @@
-const altTexts = require("../static/assets/alttexts.json")
 const cfIds = require("../static/data/curseforgeids.json")
 const siteUtils = require("../utils/siteutils.js")
 const tagUtils = require("../utils/tagutils.js")
-
-var alreadyLoggedNoAlt = {}
-
-// classesOpt - classes to give to the image
-var makeImage = (src, classesOpt, idOpt) => {
-    var classesArray = classesOpt || []
-    var classes = classesArray;
-    try{
-        classes = classesArray.join(", ");
-    } catch {}
-    var url = src;
-    var alt = "";
-    if(src.substring(0, 4) != "http"){
-        url = "/assets/" + src;
-    }
-    if(altTexts[src]){
-        alt = altTexts[src];
-    } else {
-        if(!alreadyLoggedNoAlt.hasOwnProperty(src)){
-            console.log(`no alt text for ${src}`)
-        }
-        alreadyLoggedNoAlt[src] = true;
-    }
-    var idString = "";
-    if(idOpt){
-        idString = `id="${idOpt}"`
-    }
-    return `<img ${idString} class="${classes}" src="${url}" alt="${alt}">`
-}
+const imgUtils = require("../utils/imgutils.js")
 
 var initFilters = (env) => {
-    env.addFilter("mkImg", makeImage);
+    env.addFilter("mkImg", imgUtils.makeImage);
+    env.addFilter("mkGallery", imgUtils.makeGallery);
     env.addFilter("mkHBG", siteUtils.hbgSVG);
     env.addFilter("themedHBG", siteUtils.makeThemedHBG);
     env.addFilter("themedVars", siteUtils.makeThemedVars);
