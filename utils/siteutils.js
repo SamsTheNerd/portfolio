@@ -1,10 +1,14 @@
 const fs = require('node:fs');
 const nunjucks = require("nunjucks")
 const themes = require("../static/data/themes.json")
+
 const { Marked } = require('marked')
+const markedKatex = require("marked-katex-extension");
 const hljs = require('highlight.js');
+
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
+
 const Prism = require('prismjs');
 const loadLanguages = require('prismjs/components/');
 loadLanguages()
@@ -57,7 +61,7 @@ const marked = new Marked(
         return Prism.highlight(code, Prism.languages[language], language);
       }
     })
-  )
+  ).use(markedKatex())
 
 
 var formatDesc = (rawDesc) => {

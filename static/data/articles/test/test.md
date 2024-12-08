@@ -99,3 +99,8 @@ eval e1@(EVar id) = do -- immediately substitute it
     -- if me2 == e1 then return me2 else eval me2
 eval e1@(ELit _) = return e1
 ```
+
+
+katex time : $\sum_{i=0}^n \frac{k(k-1)}{2}$
+
+katex time display mode: $$\sum_{i=0}^n \frac{k(k-1)}{2}$$

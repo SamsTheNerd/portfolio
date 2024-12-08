@@ -5,6 +5,7 @@
       "highlight.js": "^11.10.0",
       "prismjs": "^1.29.0",
       "marked-highlight": "^2.2.1",
-      "jsdom": "^25.0.1"
+      "jsdom": "^25.0.1",
+      "marked-katex-extension": "5.1.3"
     }
   }

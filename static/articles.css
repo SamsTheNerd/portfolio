@@ -84,3 +84,8 @@
 .img-gallery-selector:hover .heart-empty{
     fill: var(--sam-green);
 }
+
+.katex-display{
+    margin-top:    0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
