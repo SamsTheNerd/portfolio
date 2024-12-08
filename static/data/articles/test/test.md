@@ -104,3 +104,34 @@ eval e1@(ELit _) = return e1
 katex time : $\sum_{i=0}^n \frac{k(k-1)}{2}$
 
 katex time display mode: $$\sum_{i=0}^n \frac{k(k-1)}{2}$$
+
+<details>
+<summary>boop</summary>
+
+```json
+{
+    "hexgloop": {
+        "name": "Hex Gloop",
+        "id": "hexgloop",
+        "tags": ["mc-modding", "software"],
+        "banner": "hexgloop/titlecard.png",
+        "icon": "hexgloop/icon.png",
+        "summary": "An addon mod for Hex Casting known for its QoL improvements and new mechanics."
+    },
+    "inline": {
+        "name": "Inline",
+        "id": "inline",
+        "tags": ["mc-modding", "software"],
+        "icon": "mcmodmisc/inlineicon.png",
+        "summary": "A minecraft library for rendering in-line with text"
+    },
+    "ducky-periphs": {
+        "name": "Ducky Peripherals",
+        "id": "ducky-periphs",
+        "tags": ["mc-modding", "software"],
+        "icon": "mcmodmisc/duckyperiphsicon.webp",
+        "summary": "An addon mod for computercraft adding ducks, keyboards, and hex casting compat"
+    },
+}
+```
+</details>

@@ -89,3 +89,31 @@
     margin-top:    0.5rem !important;
     margin-bottom: 0.5rem !important;
 }
+
+details{
+    min-height: 0 !important;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    --top-color-base: var(--lighter-dark) !important;
+    --top-color-hover: var(--lighter-dark) !important;
+    --bottom-color-base: var(--lighter-dark) !important;
+    --bottom-color-hover: var(--lighter-dark) !important;
+}
+
+details[open] summary{
+    border-bottom: solid 2px var(--sam-green);
+}
+
+details summary{
+    border-bottom: solid 2px var(--sam-pink);
+    transition: 100ms border;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    cursor:pointer;
+}
+
+details > *:not(summary){
+    position: relative;
+    width: 90%;
+    left: 8%;
+}

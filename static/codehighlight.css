@@ -63,6 +63,9 @@ code.hljs, code.hljs *{
     --hl-color: var(--ln-yellow);
 }
 
+.token.property{
+    --hl-color: var(--ln-yellow);
+}
 
 .token.function{
     --hl-color: var(--ln-yellow);

@@ -73,6 +73,10 @@ var formatDesc = (rawDesc) => {
         elem.classList.add("bgsync")
         elem.setAttribute("style", `--hbg-svg: ${makeHeartBGSVG("#120C1F", "#1E1433", "#1E1433")} !important; filter: blur(1);`)
     })
+    dom.window.document.querySelectorAll("details").forEach(elem => {
+        elem.classList.add("card")
+        elem.classList.add("bgsync")
+    })
     return dom.serialize()
     // return descHTML;
 }
