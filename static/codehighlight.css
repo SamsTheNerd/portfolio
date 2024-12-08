@@ -22,60 +22,64 @@
     text-wrap: wrap;
     padding: 0.5em;
     box-shadow: 0 0 0.5rem 0rem var(--ln-pink);
-    --sel-back: var(--ln-D2-purple);
+    --sel-back: var(--ln-D3-purple);
   }
 
 code.hljs{
     font-size: 0.8em;
-    color: var(--ln-D1-purple);
 }
 
 code.hljs *{
     font-size: inherit;
-    color: var(--ln-D1-purple);
+}
+
+code.hljs, code.hljs *{
+    --hl-color: var(--ln-D1-purple);
+    color: var(--hl-color) !important;
+    --sel-fore: var(--hl-color);
 }
 
 .token.keyword {
-    color: var(--ln-pink);
+    --hl-color: var(--ln-pink);
 }
 
 .token.operator, .token.punctuation {
-    color: var(--ln-cyan);
+    --hl-color: var(--ln-cyan);
 }
 
 .token.comment {
-    color: var(--ln-D2-purple);
+    --hl-color: var(--ln-D2-purple);
 }
 
 .token.number{
-    color: var(--ln-orange);
+    --hl-color: var(--ln-orange);
 }
 
 .token.string{
-    color: var(--ln-green);
+    --hl-color: var(--ln-green);
 }
 
 .token.property-access{
-    color: var(--ln-yellow);
+    --hl-color: var(--ln-yellow);
 }
 
 
 .token.function{
-    color: var(--ln-yellow);
+    --hl-color: var(--ln-yellow);
 }
 
 .token.method{
-    color: var(--ln-blue);
+    --hl-color: var(--ln-blue);
 }
 
 .token.class-name{
-    color: var(--ln-blue);
+    --hl-color: var(--ln-blue);
 }
 
 .token.parameter{
-    color: var(--ln-orange);
+    --hl-color: var(--ln-orange);
 }
 
 .token.constant{
-    color: var(--ln-pink);
+    --hl-color: var(--ln-pink);
 }
