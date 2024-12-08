@@ -1,6 +1,15 @@
 const fs = require('node:fs');
 const nunjucks = require("nunjucks")
 const themes = require("../static/data/themes.json")
+const { Marked } = require('marked')
+const hljs = require('highlight.js');
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const Prism = require('prismjs');
+const loadLanguages = require('prismjs/components/');
+loadLanguages()
+
+const { markedHighlight } = require("marked-highlight");
 
 const defTagTheme = "blue";
 
@@ -39,11 +48,36 @@ var makeThemedVars = (themeIsh) => {
 }
 
 
+const marked = new Marked(
+    markedHighlight({
+      emptyLangClass: 'hljs',
+      langPrefix: 'hljs language-',
+      highlight(code, lang, info) {
+        const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+        return Prism.highlight(code, Prism.languages[language], language);
+      }
+    })
+  )
+
+
+var formatDesc = (rawDesc) => {
+    var descMD = nunjucks.renderString(rawDesc)
+    var descHTML = marked.parse(descMD);
+    var dom = new JSDOM(descHTML)
+    dom.window.document.querySelectorAll("pre:has(code.hljs)").forEach(elem => {
+        elem.classList.add("hbg-blurry")
+        elem.classList.add("bgsync")
+        elem.setAttribute("style", `--hbg-svg: ${makeHeartBGSVG("#120C1F", "#1E1433", "#1E1433")} !important; filter: blur(1);`)
+    })
+    return dom.serialize()
+    // return descHTML;
+}
+
 var getDescription = (descriptable) => {
     var descFile = `./static/data/descriptions/${descriptable.description || (descriptable.id + ".md")}`
     try {
         var rawDesc = fs.readFileSync(descFile, 'utf8');
-        return nunjucks.renderString(rawDesc, descriptable);
+        return formatDesc(rawDesc);
     } catch (err) {
         return "";
     }
@@ -54,5 +88,6 @@ module.exports = {
     "getDesc": getDescription,
     "getTheme": getTheme,
     "makeThemedHBG": makeThemedHBG,
-    "makeThemedVars": makeThemedVars
+    "makeThemedVars": makeThemedVars,
+    "formatDesc": formatDesc
 }

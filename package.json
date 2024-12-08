@@ -1,5 +1,10 @@
 {
     "dependencies": {
-      "nunjucks": "^3.2.4"
+      "nunjucks": "^3.2.4",
+      "marked": "^15.0.3",
+      "highlight.js": "^11.10.0",
+      "prismjs": "^1.29.0",
+      "marked-highlight": "^2.2.1",
+      "jsdom": "^25.0.1"
     }
   }

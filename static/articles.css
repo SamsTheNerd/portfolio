@@ -31,6 +31,11 @@
     filter: drop-shadow(0 0 0.5rem var(--sam-green));
 }
 
+
+.tall .img-gallery-entry img{
+    height: 25rem;
+}
+
 .img-gallery-entry p {
     text-align: center;
     margin-bottom: 0;

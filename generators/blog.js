@@ -1,7 +1,8 @@
 const fs = require('node:fs');
 const nunjucks = require("nunjucks")
 const tags = require("../static/data/tags.json")
-const genutils = require("./utils.js")
+const genutils = require("./utils.js");
+const siteutils = require('../utils/siteutils.js');
 
 var BLOG_DATA = {}
 
@@ -21,7 +22,7 @@ const DATE_GETTER = /<date>\s*(?<month>\d+)(?:\/(?<day>\d+))(?:\/(?<year>\d+))\s
 var blogFileToData = (fileContent, id) => {
     var parsedIsh = META_GETTER.exec(fileContent)
     var metaData = parsedIsh[1]
-    var articleContent = nunjucks.renderString(parsedIsh[2])
+    var articleContent = siteutils.formatDesc(parsedIsh[2])
     
     var title = TITLE_GETTER.exec(metaData)[1];
     

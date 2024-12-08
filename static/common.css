@@ -8,6 +8,10 @@
     --dark-background: #18161A;
     --heart-mid-shadow: #1C1B1F;
     --lighter-dark: #242226;
+
+    /* default selection colors */
+    --sel-back: var(--pale-green);
+    --sel-fore: var(--dark-background);
 }
 
 body{
@@ -45,6 +49,25 @@ p{
     background-attachment: local;
 }
 
+.hbg-blurry{
+    backdrop-filter: blur(5px);
+}
+
+.hbg-blurry::before {
+    background-image: var(--hbg-svg);
+    background-size: 200px;
+    background-repeat: repeat;
+    background-position-x: var(--bg-x);
+    background-position-y: var(--bg-y);
+    background-attachment: local;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    content: "";
+    filter: blur(5px);
+}
+
 .hbg-outline{
     background-image: url("./assets/HeartBackgroundBlurred.png") !important;
     background-size: 200px;
@@ -73,13 +96,13 @@ p{
 }
 
 ::-moz-selection { /* Code for Firefox */
-    background: var(--pale-green);
-    color: var(--dark-background);
+    background: var(--sel-back);
+    color: var(--sel-fore);
 }
 
 ::selection {
-    background: var(--pale-green);
-    color: var(--dark-background);
+    background: var(--sel-back);
+    color: var(--sel-fore);
 }
 
 .blurry{

@@ -1,0 +1,81 @@
+/* Lovely Night 80s Theme */
+:root{
+    --ln-D1-purple:#D9D9D9;
+    --ln-D2-purple:#8574A6;
+    --ln-D3-purple:#47366B;
+    --ln-D4-purple:#312152;
+    --ln-D5-purple:#1E1433;
+    --ln-D6-purple:#120C1F;
+
+    --ln-red: #FF8C8E;
+    --ln-orange: #FFAC80;
+    --ln-yellow: #FFEA80;
+    --ln-green: #8AE599;
+    --ln-cyan: #73E5E5;
+    --ln-blue: #7399E5;
+    --ln-pink: #E391E5;
+}
+
+.hljs {
+    display: block;
+    overflow-x: auto;
+    text-wrap: wrap;
+    padding: 0.5em;
+    box-shadow: 0 0 0.5rem 0rem var(--ln-pink);
+    --sel-back: var(--ln-D2-purple);
+  }
+
+code.hljs{
+    font-size: 0.8em;
+    color: var(--ln-D1-purple);
+}
+
+code.hljs *{
+    font-size: inherit;
+    color: var(--ln-D1-purple);
+}
+
+.token.keyword {
+    color: var(--ln-pink);
+}
+
+.token.operator, .token.punctuation {
+    color: var(--ln-cyan);
+}
+
+.token.comment {
+    color: var(--ln-D2-purple);
+}
+
+.token.number{
+    color: var(--ln-orange);
+}
+
+.token.string{
+    color: var(--ln-green);
+}
+
+.token.property-access{
+    color: var(--ln-yellow);
+}
+
+
+.token.function{
+    color: var(--ln-yellow);
+}
+
+.token.method{
+    color: var(--ln-blue);
+}
+
+.token.class-name{
+    color: var(--ln-blue);
+}
+
+.token.parameter{
+    color: var(--ln-orange);
+}
+
+.token.constant{
+    color: var(--ln-pink);
+}
