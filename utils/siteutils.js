@@ -78,7 +78,6 @@ var formatDesc = (rawDesc) => {
         elem.classList.add("bgsync")
     })
     return dom.serialize()
-    // return descHTML;
 }
 
 var getDescription = (descriptable) => {

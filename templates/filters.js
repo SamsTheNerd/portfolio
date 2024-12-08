@@ -19,6 +19,7 @@ var initFilters = (env) => {
         return `<a class="shield cf-shield" target="_blank" href="https://www.curseforge.com/minecraft/mc-mods/${slug}"><img alt="CurseForge Downloads for ${slug}" src="https://img.shields.io/curseforge/dt/${id}?style=for-the-badge&logo=curseforge&logoColor=white&color=%23F16436"></a>`
     })
     env.addFilter("getProjects", tagUtils.getProjects);
+    env.addFilter("getBlogPosts", tagUtils.getBlogs);
 }
 
 

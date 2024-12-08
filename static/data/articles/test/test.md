@@ -1,5 +1,7 @@
 <articlemeta>
     <title>Test Article !!</title>
+    <description>This is a test blog post.</description>
+    <banner>quatalog/banner.png</banner>
     <tags>
         <tag>mc-modding</tag>
     </tags>

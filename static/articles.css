@@ -1,4 +1,21 @@
 
+.project-desc h3{
+    text-decoration: underline;
+}
+
+#page-title{
+    margin-bottom: 0 !important;
+}
+
+#author-shelf{
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+}
+
+#date-shelf{
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+}
 
 .img-gallery{
     width: 100%;

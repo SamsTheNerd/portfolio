@@ -64,6 +64,17 @@
     grid-template-columns: var(--card-width) var(--card-width) var(--card-width) var(--card-width);
 }
 
+/* 
+
+d8888b. d8888b.  .d88b.     d88b d88888b  .o88b. d888888b       .o88b.  .d8b.  d8888b. d8888b.
+88  `8D 88  `8D .8P  Y8.    `8P' 88'     d8P  Y8 `~~88~~'      d8P  Y8 d8' `8b 88  `8D 88  `8D
+88oodD' 88oobY' 88    88     88  88ooooo 8P         88         8P      88ooo88 88oobY' 88   88
+88~~~   88`8b   88    88     88  88~~~~~ 8b         88         8b      88~~~88 88`8b   88   88
+88      88 `88. `8b  d8' db. 88  88.     Y8b  d8    88         Y8b  d8 88   88 88 `88. 88  .8D
+88      88   YD  `Y88P'  Y8888P  Y88888P  `Y88P'    YP          `Y88P' YP   YP 88   YD Y8888D'
+
+*/
+
 .project-card{
     display: flex;
     flex-direction: column;
@@ -86,7 +97,7 @@
     width: 100%;
     border-radius: inherit;
     overflow: hidden;
-    height: var(--card-width);
+    max-height: var(--card-width);
     display: grid;
     justify-content: center;
 }
@@ -147,6 +158,23 @@
     transition-property: margin, padding, max-width;
 }
 
+.post-holder{
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-auto-flow: row;
+    justify-content: space-between;
+    --card-width: 38vw;
+    grid-template-columns: var(--card-width) var(--card-width);
+}
+
+.project-card-date{
+    margin: 0;
+}
+
+.post-holder .card{
+    min-height: 10vw;
+}
 
 @media (max-aspect-ratio: 13/10){
     .card-holder{
@@ -160,6 +188,11 @@
         --card-width: 40vw;
         grid-template-columns: var(--card-width) var(--card-width);
     }
+
+    .post-holder{
+        --card-width: 85vw;
+        grid-template-columns: var(--card-width);
+    }
 }
 
 @media (max-aspect-ratio: 7/10){
@@ -168,7 +201,7 @@
         grid-template-columns: var(--card-width);
     }
 
-    .project-card{
+    .project-card:not(.post-card){
         flex-direction: row;
     }
 
@@ -185,6 +218,15 @@
     }
 
     .proj-card-keyart-holder{
-        height: calc(var(--card-width) * 0.3);
+        max-height: calc(var(--card-width) * 0.5);
+    }
+
+    .post-card .proj-card-keyart-holder{
+        max-height: var(--card-width)
+    }
+
+    .post-holder{
+        --card-width: 90vw;
+        grid-template-columns: var(--card-width);
     }
 }

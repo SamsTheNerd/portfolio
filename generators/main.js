@@ -56,13 +56,20 @@ var generateAll = () => {
         genutils.writeFile(`./_site/projects/${project.id}`, `index.html`, projectHtml);
     }
     // make full project page
-    var fakeAllTag = {
-        "id": "",
+    var fakeAllProj = {
+        "id": "projects",
         "name": "Projects",
         "color": "green"
     }
-    var fakeAllTagHtml = generateTagPage(fakeAllTag);
-    genutils.writeFile(`./_site/projects`, `index.html`, fakeAllTagHtml);
+    var fakeAllPosts = {
+        "id": "posts",
+        "name": "Changelog Posts",
+        "color": "green"
+    }
+    var fakeAllProjHtml = generateTagPage(fakeAllProj);
+    var fakeAllPostsHtml = generateTagPage(fakeAllPosts);
+    genutils.writeFile(`./_site/projects`, `index.html`, fakeAllProjHtml);
+    genutils.writeFile(`./_site/changelog`, `index.html`, fakeAllPostsHtml);
 
     // make tag pages
     tagKeys = Object.keys(tags);

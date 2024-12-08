@@ -10,20 +10,22 @@
 {% block title %}{{ article.title }}{% endblock %}
 
 {% block maincontent %}
-    {# {% if project.banner %}
-        {{ project.banner | mkImg("banner") }}
-    {% endif %} #}
+    {% if article.banner %}
+        {{ article.banner | mkImg("banner") }}
+    {% endif %}
     <div id="info-header">
         {# {% if project.icon and not project.banner %}
             {{ project.icon | mkImg("project-icon") }}
         {% endif %} #}
         <h1 id="page-title">{{ article.title }}</h1>
+        <h4 id="author-shelf">{{ article.author }}</h4>
+        <h4 id="date-shelf">{{ article.date.toLocaleString('en-US', { timeZone: 'EST' }) }}</h4>
         {# <hr> #}
-        {# <div class="tag-shelf">
-            {% for tagId in project.tags %}
+        <div class="tag-shelf">
+            {% for tagId in article.tags %}
                 {{ tagId | mkTag }}
             {% endfor %}
-        </div> #}
+        </div>
         <hr>
     </div>
     <div class="article-content project-desc">

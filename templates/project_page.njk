@@ -2,8 +2,21 @@
 
 {% block header %}
     {% if project.icon %}
-        <link rel="icon" type="image/x-icon" href="/assets/{{ project.icon }}">
+        <link rel="icon" type="image/x-icon" href="https://samsthenerd.com/assets/{{ project.icon }}">
+    {% else %}
+        <link rel="icon" type="image/x-icon" href="/assets/pfp.png">
     {% endif %}
+    <meta property="og:title" content="{{ project.name }} -- Sam's Work" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://samsthenerd.com/projects/{{ project.id }}" />
+    {% if project.banner %}
+        <meta property="og:image" content="https://samsthenerd.com/assets/{{ project.banner }}" />
+    {% else %}
+        {% if project.icon %}
+            <meta property="og:image" content="https://samsthenerd.com/assets/{{ project.banner }}" />
+        {% endif %}
+    {% endif %}
+    <meta property="og:description" content="{{ project.summary }}" />
     <link rel="stylesheet" href="/articles.css">
 {% endblock %}
 

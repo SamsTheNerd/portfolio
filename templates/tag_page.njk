@@ -10,4 +10,14 @@
             {{ cards.mkProjCard(project) }}
         {% endfor %}
     </div>
+    {% if (tag.id | getBlogPosts).length > 0 %}
+        {% if tag.id != "posts" %}
+            <h2> Changelog Posts </h2>
+        {% endif %}
+        <div class="post-holder">
+            {% for post in tag.id | getBlogPosts %}
+                {{ cards.mkPostCard(post) }}
+            {% endfor %}
+        </div>
+    {% endif %}
 {% endblock %}

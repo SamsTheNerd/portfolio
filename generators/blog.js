@@ -4,6 +4,9 @@ const tags = require("../static/data/tags.json")
 const genutils = require("./utils.js");
 const siteutils = require('../utils/siteutils.js');
 
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+
 var BLOG_DATA = {}
 
 const isFile = fileName => {
@@ -15,18 +18,33 @@ var articlesPathPrefix = `./static/data/articles`;
 const FN_TO_ID = /\/?(.*)(?:\.md)/;
 
 const META_GETTER = /(<articlemeta>.*<\/articlemeta>)\n(.*)/gms
-const TITLE_GETTER = /<title>(.*)<\/title>/sgm
 
 const DATE_GETTER = /<date>\s*(?<month>\d+)(?:\/(?<day>\d+))(?:\/(?<year>\d+))\s*(?:(?<hour>\d+):(?<minute>\d+)(?<meridiem>am|pm)?)?<\/date>/
+
+var queryOrElse = (doc, query, def) => {
+    var elem = doc.querySelector(query)
+    return elem == null ? def : elem.innerHTML;
+}
 
 var blogFileToData = (fileContent, id) => {
     var parsedIsh = META_GETTER.exec(fileContent)
     var metaData = parsedIsh[1]
     var articleContent = siteutils.formatDesc(parsedIsh[2])
+
+    var metaDoc = new JSDOM(metaData).window.document
     
-    var title = TITLE_GETTER.exec(metaData)[1];
-    
-    var dateRes = DATE_GETTER.exec(metaData).groups;
+    var title = queryOrElse(metaDoc, "title", undefined);
+
+    var banner = queryOrElse(metaDoc, "banner", undefined);
+
+    var description = queryOrElse(metaDoc, "description", "");
+
+    var dateRes = DATE_GETTER.exec(metaData).groups
+
+    var author = queryOrElse(metaDoc, "author", "sam");
+
+    var tags = [];
+    metaDoc.querySelectorAll("tag").forEach(tag => tags.push(tag.innerHTML));
 
     // we're not posting in the 90s and i doubt i'll be posting in 100 years
     var year = Number.parseInt(dateRes.year) % 2000 + 2000;
@@ -44,17 +62,24 @@ var blogFileToData = (fileContent, id) => {
 
     // TODO: grab rest of metadata
 
-
     return {
         "id": id,
         "title": title,
+        "banner": banner,
         "date": date,
+        "author": author,
+        "tags": tags,
+        "description": description,
         "content": articleContent
     }
 }
 
 var getBlogData = (articlePathOpt) => {
     var articlePath = articlePathOpt || '';
+
+    if(articlePath == '' && Object.keys(BLOG_DATA).length > 0){
+        return BLOG_DATA;
+    }
 
     fs.readdirSync(`${articlesPathPrefix}/${articlePath}`).forEach(fileName => {
         var localName = `${articlePath}/${fileName}`;
@@ -70,6 +95,7 @@ var getBlogData = (articlePathOpt) => {
     if(articlePath == ''){
         // console.log(BLOG_DATA)
     }
+    return BLOG_DATA;
 }
 
 var makeRSS = (articleCount) => {
@@ -85,8 +111,8 @@ var makeRSS = (articleCount) => {
         `\n
         <item>
             <title>${article.title}</title>
-            <link>https://portfolio.samsthenerd.com/articles/${article.id}</link>
-            <description>Boop !</description>
+            <link>https://samsthenerd.com/articles/${article.id}</link>
+            <description>${article.description}</description>
         </item>`
     }
 
@@ -94,7 +120,7 @@ var makeRSS = (articleCount) => {
     `<rss version="2.0">
         <channel>
             <title>Changelog !</title>
-            <link>https://portfolio.samsthenerd.com/</link>
+            <link>https://samsthenerd.com/</link>
             <description>
                 An informal blog about what I (sam !) am working on. Mostly minecraft modding, some other dev stuff, and maybe some art !
             </description>
@@ -108,15 +134,21 @@ var makeRSS = (articleCount) => {
     genutils.writeFile(`./_site/articles`, "changelog_rss.xml", rssString)
 }
 
+
+var ctx = {
+    "currentDateTime": new Date().toLocaleString('en-US', { timeZone: 'EST' })
+}
+
 var makeBlog = () => {
     getBlogData()
     makeRSS(100)
     Object.keys(BLOG_DATA).forEach(articleID => {
-        var page = nunjucks.render("article_page.njk", {article: BLOG_DATA[articleID]});
+        var page = nunjucks.render("article_page.njk", {article: BLOG_DATA[articleID], ctx: ctx});
         genutils.writeFile(`./_site/articles/${articleID}`, `index.html`, page)
     })
 }
 
 module.exports = {
-    "makeBlog": makeBlog
+    "makeBlog": makeBlog,
+    "getBlogData": getBlogData
 }

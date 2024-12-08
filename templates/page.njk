@@ -29,9 +29,13 @@
 </head>
 <body id="body">
     <nav id="navbar">
-        <a id="home-link" class="nav-link hbg bgsync" style="--hbg-svg: {{ 'green' | themedHBG }}; {{ 'green' | themedVars }}" href="/" >Main</a>
+        {% set homelinkcolor = 'green' %}
+        {% set projectlinkcolor = 'green' %}
+        {% set bloglinkcolor = 'green' %}
+        <a id="home-link" class="nav-link hbg bgsync" style="--hbg-svg: {{ homelinkcolor | themedHBG }}; {{ homelinkcolor | themedVars }}" href="/" >Main</a>
         {# <a id="tags-link" class="nav-link hbg bgsync" style="--hbg-svg: {{ 'green' | themedHBG }}; {{ 'green' | themedVars }}" href="/tags/" >Tags</a> #}
-        <a id="projects-link" class="nav-link hbg bgsync" style="--hbg-svg: {{ 'green' | themedHBG }}; {{ 'green' | themedVars }}" href="/projects/" >Projects</a>
+        <a id="projects-link" class="nav-link hbg bgsync" style="--hbg-svg: {{ projectlinkcolor | themedHBG }}; {{ projectlinkcolor | themedVars }}" href="/projects/" >Projects</a>
+        <a id="blog-link" class="nav-link hbg bgsync" style="--hbg-svg: {{ bloglinkcolor | themedHBG }}; {{ bloglinkcolor | themedVars }}" href="/changelog/" >Changelog (Blog)</a>
     </nav>
     {% block premain %}{% endblock %}
     <main id="main-content">
