@@ -1,3 +1,13 @@
+<articlemeta>
+    <name>WNBOI</name>
+    <description>A library mod for radial menus.</description>
+    <icon>mcmodmisc/wnboiicon.webp</icon>
+    <tags>
+        <tag>mc-modding</tag>
+        <tag>software</tag>
+    </tags>
+</articlemeta>
+
 <center>
 {{ "wnboi" | modrinthShield }}
 {{ "wnboi" | cfShield }}

@@ -1,0 +1,34 @@
+{% extends "page.njk" %}
+
+{% block header %}
+    {# {% if project.icon %}
+        <link rel="icon" type="image/x-icon" href="/assets/{{ project.icon }}">
+    {% endif %} #}
+    <link rel="stylesheet" href="/articles.css">
+{% endblock %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block maincontent %}
+    {% if article.banner %}
+        {{ article.banner | mkImg("banner") }}
+    {% endif %}
+    <div id="info-header">
+        {# {% if project.icon and not project.banner %}
+            {{ project.icon | mkImg("project-icon") }}
+        {% endif %} #}
+        <h1 id="page-title">{{ article.title }}</h1>
+        <h4 id="author-shelf">{{ article.author }}</h4>
+        <h4 id="date-shelf">{{ article.date.toLocaleString('en-US', { timeZone: 'EST' }) }}</h4>
+        {# <hr> #}
+        <div class="tag-shelf">
+            {% for tagId in article.tags %}
+                {{ tagId | mkTag }}
+            {% endfor %}
+        </div>
+        <hr>
+    </div>
+    <div class="article-content project-desc">
+        {{ article.content}}
+    </div>
+{% endblock %}

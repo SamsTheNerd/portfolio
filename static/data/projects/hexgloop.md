@@ -1,3 +1,14 @@
+<articlemeta>
+    <name>Hex Gloop</name>
+    <description>An addon mod for Hex Casting known for its QoL improvements and new mechanics.</description>
+    <icon>hexgloop/icon.png</icon>
+    <banner>hexgloop/titlecard.png</banner>
+    <tags>
+        <tag>mc-modding</tag>
+        <tag>software</tag>
+    </tags>
+</articlemeta>
+
 <center>
 {{ "hexgloop" | modrinthShield }}
 {{ "hexgloop" | cfShield }}

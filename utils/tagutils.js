@@ -1,7 +1,6 @@
 const siteUtils = require("./siteutils.js")
 const tagData = require("../static/data/tags.json")
-const projectsData = require('../static/data/projects.json')
-const blogGen = require('../generators/blog.js')
+const Articles = require('../generators/articles.js')
 
 var makeTag = (tagId) => {
     var tag = tagData[tagId];
@@ -9,8 +8,7 @@ var makeTag = (tagId) => {
 }
 
 var getProjects = (tagId) => {
-    return Object.keys(projectsData).map(key => {
-        var proj = projectsData[key];
+    return Object.values(Articles.getProjectData()).map(proj =>{
         if(tagId == "projects" || proj.tags.includes(tagId)){
             return proj;
         }
@@ -19,7 +17,7 @@ var getProjects = (tagId) => {
 }
 
 var getBlogPosts = (tagId) => {
-    const blogData = blogGen.getBlogData();
+    const blogData = Articles.getBlogData();
     var posts = Object.keys(blogData).map(key => {
         var blog = blogData[key];
         if(tagId == "posts" || blog.tags.includes(tagId)){

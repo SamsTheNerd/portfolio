@@ -1,3 +1,14 @@
+
+<articlemeta>
+    <name>Ducky Peripherals</name>
+    <description>An addon mod for computercraft adding ducks, keyboards, and hex casting compat</description>
+    <icon>mcmodmisc/duckyperiphsicon.webp</icon>
+    <tags>
+        <tag>mc-modding</tag>
+        <tag>software</tag>
+    </tags>
+</articlemeta>
+
 <center>
 {{ "ducky-periphs" | modrinthShield }}
 {{ "ducky-periphs" | cfShield }}

@@ -8,9 +8,12 @@
     {% if project.icon and not project.keyart %}
         {{ project.icon | mkImg("project-card-icon") }}
     {% endif %}
+    {% if project.banner and not project.keyart and not project.icon %}
+        {{ project.banner | mkImg("project-card-keyart") }}
+    {% endif %}
     <div class="project-card-body">
         <div class="project-card-title">{{ project.name }}</div>
-        <p class="project-card-summary">{{ project.summary }}</p>
+        <p class="project-card-summary">{{ project.description }}</p>
     </div>
 </a>
 {% endmacro %}
