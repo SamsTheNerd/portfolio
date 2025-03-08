@@ -12,6 +12,7 @@
 <center>
 {{ "hexgloop" | modrinthShield }}
 {{ "hexgloop" | cfShield }}
+{{ "hexgloop" | ghShield }}
 </center>
 
 

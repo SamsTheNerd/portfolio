@@ -9,3 +9,6 @@
     </tags>
 </articlemeta>
 
+<center>
+{{ "quatalog/quatalog" | ghShield }}
+</center>

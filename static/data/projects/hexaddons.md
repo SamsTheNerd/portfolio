@@ -9,3 +9,6 @@
     </tags>
 </articlemeta>
 
+<center>
+{{ "hexaddons" | ghShield }}
+</center>

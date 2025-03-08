@@ -12,6 +12,7 @@
 <center>
 {{ "ducky-periphs" | modrinthShield }}
 {{ "ducky-periphs" | cfShield }}
+{{ "ducky-periphs" | ghShield }}
 </center>
 
 Ducky Peripherals is a [Minecraft mod](https://en.wikipedia.org/wiki/Minecraft_modding) and an addon for [ComputerCraft](https://modrinth.com/mod/cc-tweaked). It adds a number of peripherals, such as the weather machine, entity detector, and keyboards. Most importantly it adds rubber ducks. It also has [Hex Casting](https://modrinth.com/mod/hex-casting) interop. There is a wiki available [here](https://github.com/SamsTheNerd/ducky-periphs/wiki) documenting the added features.

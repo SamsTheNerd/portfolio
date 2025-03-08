@@ -11,6 +11,7 @@
 <center>
 {{ "wnboi" | modrinthShield }}
 {{ "wnboi" | cfShield }}
+{{ "wnboi" | ghShield }}
 </center>
 
 This [Minecraft mod](https://en.wikipedia.org/wiki/Minecraft_modding) is a library for creating radial menus. The name stands for "Why Not Be One Item" since it was meant to be used for condensing the functionality of multiple items into a single item.
