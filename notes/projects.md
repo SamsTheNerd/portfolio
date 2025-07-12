@@ -5,8 +5,10 @@
 ~ ducky 
 ~ wnboi 
 ~ hex addons page 
-- inline (once it's out)
-- cobblecards (once it's out)
+~ inline (once it's out)
+- potion icons
+- month of swords
+- minegrapht
 
 ## Web Dev
 ~ Quatalog

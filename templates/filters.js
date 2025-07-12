@@ -11,6 +11,9 @@ var initFilters = (env) => {
     env.addFilter("themedVars", siteUtils.makeThemedVars);
     env.addFilter("mkTag", tagUtils.makeTag);
     env.addFilter("getDesc", siteUtils.getDesc);
+    env.addFilter("quatalink", (course) => {
+        return `<a class="quatalink" target="_blank" href="https://quatalog.com/courses/${course.code}"><img class="quatalink-icon" alt="Quatalog Icon" src="/assets/quatalog/icon.png"></img> ${course.name} (${course.code})</a>`
+    })
     env.addFilter("modrinthShield", (slug) => {
         return `<a class="shield modrinth-shield" target="_blank" href="https://modrinth.com/mod/${slug}"><img alt="Modrinth Downloads For ${slug}" src="https://img.shields.io/modrinth/dt/${slug}?style=for-the-badge&logo=modrinth&logoColor=white&color=%2300af5c"></img></a>`
     })

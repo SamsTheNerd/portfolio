@@ -3,5 +3,11 @@
     "hexgloop/titlecard.png": "A pixel art title card for HexGloop. 'Hex' is in a mystical amethyst font. 'Gloop' is in a slimy green font.",
     "hexgloop/icon.png": "The Hex Gloop mod icon",
     "quatalog/icon.png": "The Quatalog Icon. A three by three grid of circles colored in a 'Q' shape.",
-    "quatalog/banner.png": "The Quatalog wordmark banner."
+    "quatalog/banner.png": "The Quatalog wordmark banner.",
+    "mcmodmisc/inlineicon.png": "The Inline mod icon",
+    "mcmodmisc/hexaddonsicon.png": "The Hex Additions page icon. A purple space filling curve on a hexagonal grid with eyes.",
+    "mcmodmisc/duckyperiphs.png": "The Ducky Peripherals mod icon.",
+    "mcmodmisc/wnboiicon.png": "The WNBOI mod icon.",
+    "typography/BenchFinal.png": "A heavily edited image of a bench with wavy text reading 'is anyone listening' repeated across the background",
+    "typography/benchoriginal.png": "A photo of a bench in front of a building at night."
 }

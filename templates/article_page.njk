@@ -1,11 +1,12 @@
 {% extends "page.njk" %}
 
 {% block header %}
-    {% if project.icon %}
+    {# {% if project.icon %}
         <link rel="icon" type="image/x-icon" href="https://samsthenerd.com/assets/{{ project.icon }}">
     {% else %}
         <link rel="icon" type="image/x-icon" href="/assets/pfp.png">
-    {% endif %}
+    {% endif %} #}
+    <link rel="icon" type="image/x-icon" href="/assets/pfp.png">
     <meta property="og:title" content="{{ project.name }} -- Sam's Work" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://samsthenerd.com/projects/{{ project.id }}" />

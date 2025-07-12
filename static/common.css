@@ -41,6 +41,12 @@ p{
     line-height: 130%;
 }
 
+blockquote{
+    border-left: solid var(--sam-green) 0.25rem;
+    margin-left: 0.25rem;
+    padding-left: 2rem;
+}
+
 .hbg {
     background-image: var(--hbg-svg);
     background-size: 200px;
@@ -293,6 +299,16 @@ footer *{
 
 .shield{
     margin: 0.5rem;
+}
+
+.quatalink{
+    color:#F5B540;
+}
+
+.quatalink-icon{
+    height: 1.3em;
+    position: relative;
+    top: 0.35em;
 }
 
 @media (max-aspect-ratio: 11/10){
