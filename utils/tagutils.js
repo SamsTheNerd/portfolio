@@ -7,17 +7,18 @@ var makeTag = (tagId) => {
     return `<a class="tag bgsync hbg-outline" href="/tags/${tag.id}/" style="--hbg-svg: ${siteUtils.makeThemedHBG(tag.theme)}; ${siteUtils.makeThemedVars(tag.theme)}">${tag.name}</a>`;
 }
 
-var getProjects = (tagId) => {
-    return Object.values(Articles.getProjectData()).map(proj =>{
+var getProjects = async (tagId) => {
+    var projectData = await Articles.getProjectData();
+    return (await Promise.all(Object.values(projectData).map(proj =>{
         if(tagId == "projects" || proj.tags.includes(tagId)){
             return proj;
         }
         return null;
-    }).filter(proj => proj != null);
+    }))).filter(proj => proj != null);
 }
 
-var getBlogPosts = (tagId) => {
-    const blogData = Articles.getBlogData();
+var getBlogPosts = async (tagId) => {
+    const blogData = await Articles.getBlogData();
     var posts = Object.keys(blogData).map(key => {
         var blog = blogData[key];
         if(tagId == "posts" || blog.tags.includes(tagId)){

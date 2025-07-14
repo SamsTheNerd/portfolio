@@ -13,22 +13,23 @@ var ctx = {
 
 // returns HTML string
 var generateTagPage = (tagData) => {
-    return nunjucks.render("tag_page.njk", {tag: tagData, ctx: ctx});
+    console.log(`making tag page: ${tagData.id}`)
+    return siteutils.nunjucksRenderAsync("tag_page.njk", {tag: tagData, ctx: ctx});
 }
 
 // returns HTML string
 var generateMainPage = () => {
     // console.log(`tags: ${Object.keys(tags)}`);
-    return nunjucks.render("main_page.njk", {ctx: ctx, tags: Object.keys(tags)});
+    return siteutils.nunjucksRenderAsync("main_page.njk", {ctx: ctx, tags: Object.keys(tags)});
 }
 
 const NOW_DATE_GETTER = /([0-9]*)-([0-9]*-([0-9]*))#(.*)/sm;
 
 
 // returns HTML string
-var generateNowPage = () => {
+var generateNowPage = async () => {
 
-    nowContentsAll = fs.readFileSync(`./static/data/nowpage.md`, {encoding: 'utf-8'});
+    nowContentsAll = await fs.readFileSync(`./static/data/nowpage.md`, {encoding: 'utf-8'});
     nows = nowContentsAll.split("#NOW: ")
     nowsList = [];
     for(var i = 1; i < nows.length; i++){
@@ -44,10 +45,10 @@ var generateNowPage = () => {
             content: siteutils.formatDesc(nowRes[4])
         });
     }
-    return nunjucks.render("now_page.njk", {ctx: ctx, tags: Object.keys(tags), nowestNow: nowsList.shift(), oldNows:nowsList});
+    return await siteutils.nunjucksRenderAsync("now_page.njk", {ctx: ctx, tags: Object.keys(tags), nowestNow: nowsList.shift(), oldNows:nowsList});
 }
 
-var generateAll = () => {
+async function generateAll() {
     // delete existing files
     try{
         if(fs.existsSync("./_site")){
@@ -63,19 +64,29 @@ var generateAll = () => {
     var njkenv = nunjucks.configure('templates', { autoescape: false });
     njkFilters.initFilters(njkenv);
 
-    Articles.makeBlog();
+    await Articles.makeBlog();
 
-    var mainHtml = generateMainPage();
-    genutils.writeFile(`./_site`, `index.html`, mainHtml);
+    console.log("made blog")
 
-    var nowHtml = generateNowPage();
-    genutils.writeFile(`./_site/now`, `index.html`, nowHtml);
+    var mainPromise = generateMainPage().then(mainHtml => genutils.writeFile(`./_site`, `index.html`, mainHtml));
+    await mainPromise;
+
+    console.log("made main")
+
+    var nowPromise = generateNowPage().then(nowHtml => genutils.writeFile(`./_site/now`, `index.html`, nowHtml));
+    await nowPromise;
+
+    console.log("made now")
     
     // make each project page
-    Object.values(Articles.getProjectData()).forEach(project => {
-        var projectHtml = Articles.generateArticlePage(project);
+    var projectData = await Articles.getProjectData();
+    console.log("got projectData")
+    Object.values(projectData).map(async project => {
+        var projectHtml = await Articles.generateArticlePage(project);
         genutils.writeFile(`./_site/projects/${project.id}`, `index.html`, projectHtml);
+        console.log(`made project page: ${project.id}`)
     });
+
     // make full project page
     var fakeAllProj = {
         "id": "projects",
@@ -87,8 +98,9 @@ var generateAll = () => {
         "name": "Changelog Posts",
         "color": "green"
     }
-    var fakeAllProjHtml = generateTagPage(fakeAllProj);
-    var fakeAllPostsHtml = generateTagPage(fakeAllPosts);
+
+    var fakeAllProjHtml = await generateTagPage(fakeAllProj);
+    var fakeAllPostsHtml = await generateTagPage(fakeAllPosts);
     genutils.writeFile(`./_site/projects`, `index.html`, fakeAllProjHtml);
     genutils.writeFile(`./_site/changelog`, `index.html`, fakeAllPostsHtml);
 
@@ -96,7 +108,7 @@ var generateAll = () => {
     tagKeys = Object.keys(tags);
     for(var t = 0; t < tagKeys.length; t++){
         var tag = tags[tagKeys[t]]
-        var tagHtml = generateTagPage(tag);
+        var tagHtml = await generateTagPage(tag);
         genutils.writeFile(`./_site/tags/${tag.id}`, `index.html`, tagHtml);
     }
 }

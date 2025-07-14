@@ -2,6 +2,9 @@ const cfIds = require("../static/data/curseforgeids.json")
 const siteUtils = require("../utils/siteutils.js")
 const tagUtils = require("../utils/tagutils.js")
 const imgUtils = require("../utils/imgutils.js")
+const ogs = require('open-graph-scraper-lite');
+
+const fetch = require("node-fetch")
 
 var initFilters = (env) => {
     env.addFilter("mkImg", imgUtils.makeImage);
@@ -28,8 +31,31 @@ var initFilters = (env) => {
         var id = cfIds[slug] || "error";
         return `<a class="shield cf-shield" target="_blank" href="https://www.curseforge.com/minecraft/mc-mods/${slug}"><img alt="CurseForge Downloads for ${slug}" src="https://img.shields.io/curseforge/dt/${id}?style=for-the-badge&logo=curseforge&logoColor=white&color=%23F16436"></a>`
     })
-    env.addFilter("getProjects", tagUtils.getProjects);
-    env.addFilter("getBlogPosts", tagUtils.getBlogs);
+    env.addFilter("getProjects", async (input, callback) => {
+        tagUtils.getProjects(input).then(projectData => {
+            callback(null, projectData)
+        })
+    }, true);
+    env.addFilter("getBlogPosts", async (input, callback) => {
+        tagUtils.getBlogs(input).then(blogData => callback(null, blogData))
+    }, true);
+    env.addFilter("testAsync", async (input, callback) => {
+        var res = await fetch(input);
+        var text = await res.text();
+        callback(null, text)
+    }, true)
+    env.addFilter("openGraphTest", async (input, callback) => {
+        var res = await fetch(input);
+        var text = await res.text();
+        var data = await ogs({ html: text})
+        const { result } = data;
+        console.log(result)
+        if(result.ogImage){
+            callback(null, `<img src="${result.ogImage[0].url}">`)
+        } else {
+            callback(null, input)
+        }
+    }, true)
 }
 
 

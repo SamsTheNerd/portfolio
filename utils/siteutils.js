@@ -68,8 +68,24 @@ const marked = new Marked(
 }))
 
 
-var formatDesc = (rawDesc) => {
-    var descMD = nunjucks.renderString(rawDesc)
+var nunjucksRenderAsync = (template, context) => {
+    return new Promise((resolve, reject) => nunjucks.render(template, context, (err, res) => {
+        if(err != null){
+            reject(err)
+        } else {
+            resolve(res);
+        }
+    }))
+}
+
+var formatDesc = async (rawDesc) => {
+    var descMD = await new Promise((resolve, reject) => nunjucks.renderString(rawDesc, (err, res) => {
+        if(err != null){
+            reject(err)
+        } else {
+            resolve(res);
+        }
+    }))
     var descHTML = marked.parse(descMD);
     var dom = new JSDOM(descHTML)
     dom.window.document.querySelectorAll("pre:has(code.hljs)").forEach(elem => {
@@ -84,11 +100,11 @@ var formatDesc = (rawDesc) => {
     return dom.serialize()
 }
 
-var getDescription = (descriptable) => {
+var getDescription = async (descriptable) => {
     var descFile = `./static/data/descriptions/${descriptable.description || (descriptable.id + ".md")}`
     try {
         var rawDesc = fs.readFileSync(descFile, 'utf8');
-        return formatDesc(rawDesc);
+        return await formatDesc(rawDesc);
     } catch (err) {
         return "";
     }
@@ -100,5 +116,6 @@ module.exports = {
     "getTheme": getTheme,
     "makeThemedHBG": makeThemedHBG,
     "makeThemedVars": makeThemedVars,
-    "formatDesc": formatDesc
+    "formatDesc": formatDesc,
+    "nunjucksRenderAsync": nunjucksRenderAsync
 }

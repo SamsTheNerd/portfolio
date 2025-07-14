@@ -30,10 +30,10 @@ var queryOrElse = (doc, query, def) => {
 
 // TODO: rename some of these files to make sense with refactor
 
-var articleFileToData = (fileContent, id) => {
+var articleFileToData = async (fileContent, id) => {
     var parsedIsh = META_GETTER.exec(fileContent)
     var metaData = parsedIsh[1]
-    var articleContent = siteutils.formatDesc(parsedIsh[2])
+    var articleContent = await siteutils.formatDesc(parsedIsh[2])
 
     var metaDoc = new JSDOM(metaData).window.document
     
@@ -79,23 +79,23 @@ var articleFileToData = (fileContent, id) => {
     }
 }
 
-var getArticleData = (articlePathOpt, pathPrefix, articleData) => {
+var getArticleData = async (articlePathOpt, pathPrefix, articleData) => {
     var articlePath = articlePathOpt || '';
 
     if(articlePath == '' && Object.keys(articleData).length > 0){
         return articleData;
     }
 
-    fs.readdirSync(`${pathPrefix}/${articlePath}`).forEach(fileName => {
+    await Promise.all(fs.readdirSync(`${pathPrefix}/${articlePath}`).map(async fileName => {
         var localName = `${articlePath}/${fileName}`;
         var fullName = `${pathPrefix}/${localName}`;
         if(isFile(fullName)){
             var articleID = FN_TO_ID.exec(localName)[1];
-            articleData[articleID] = articleFileToData(fs.readFileSync(fullName, {encoding: 'utf-8'}), articleID);
+            articleData[articleID] = await articleFileToData(fs.readFileSync(fullName, {encoding: 'utf-8'}), articleID);
         } else {
-            getArticleData(localName, pathPrefix, articleData);
+            await getArticleData(localName, pathPrefix, articleData);
         }
-    })
+    }))
 
     if(articlePath == ''){
         // console.log(BLOG_DATA)
@@ -103,14 +103,14 @@ var getArticleData = (articlePathOpt, pathPrefix, articleData) => {
     return articleData;
 }
 
-var getBlogData = () => {
-    var data = getArticleData("", blogPathPrefix, BLOG_DATA);
+var getBlogData = async () => {
+    var data = await getArticleData("", blogPathPrefix, BLOG_DATA);
     Object.keys(data).forEach(k => data[k].type = "blog");
     return data;
 }
 
-var getProjectData = () => {
-    var data = getArticleData("", projectsPathPrefix, PROJECT_DATA);
+var getProjectData = async () => {
+    var data = await getArticleData("", projectsPathPrefix, PROJECT_DATA);
     Object.keys(data).forEach(k => data[k].type = "project");
     return data;
 }
@@ -156,18 +156,18 @@ var ctx = {
     "currentDateTime": new Date().toLocaleString('en-US', { timeZone: 'EST' })
 }
 
-var makeBlog = () => {
-    getBlogData()
+var makeBlog = async () => {
+    await getBlogData()
     makeRSS(100)
-    Object.values(BLOG_DATA).forEach(article => {
-        var page = generateArticlePage(article)
+    await Promise.all(Object.values(BLOG_DATA).map(async article => {
+        var page = await generateArticlePage(article)
         genutils.writeFile(`./_site/articles/${article.id}`, `index.html`, page)
-    })
+    }))
 }
 
 // returns HTML string
 var generateArticlePage = (projectData) => {
-    return nunjucks.render("article_page.njk", {project: projectData, ctx: ctx});
+    return siteutils.nunjucksRenderAsync("article_page.njk", {project: projectData, ctx: ctx});
 }
 
 module.exports = {

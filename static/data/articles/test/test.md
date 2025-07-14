@@ -107,6 +107,11 @@ katex time : $\sum_{i=0}^n \frac{k(k-1)}{2}$
 
 katex time display mode: $$\sum_{i=0}^n \frac{k(k-1)}{2}$$
 
+{{ "https://example.com" | testAsync }}
+
+{{ "https://www.dcuniverseinfinite.com/collections/edt-dcuniverse-pride" | openGraphTest }}
+
+
 <details>
 <summary>boop</summary>
 
