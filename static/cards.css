@@ -2,9 +2,9 @@
 .card{
     width: 100%;
     height: min-content;
-    min-height: 22.5vw;
+    min-height: 95%;
     position: relative;
-    --this-border-radius: 1vw;
+    --this-border-radius: 1rem;
     border-radius: var(--this-border-radius);
     --top-color-base: var(--lighter-dark);
     --top-color-hover: var(--sam-green);
@@ -16,6 +16,7 @@
     transition-timing-function: ease-in-out;
     display: flex;
     flex-direction: column;
+    align-items:center;
     background-image: url("./assets/HeartBackgroundVeryBlurred.png");
     background-size: 200px;
     background-repeat: repeat;
@@ -60,8 +61,7 @@
     display: grid;
     grid-auto-flow: row;
     justify-content: space-between;
-    --card-width: 18vw;
-    grid-template-columns: var(--card-width) var(--card-width) var(--card-width) var(--card-width);
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
 }
 
 /* 
@@ -75,40 +75,44 @@ d8888b. d8888b.  .d88b.     d88b d88888b  .o88b. d888888b       .o88b.  .d8b.  d
 
 */
 
+.card-container-wrapper{
+    container: card / inline-size;
+    width: 93%;
+}
+
 .project-card{
     display: flex;
     flex-direction: column;
     align-items: center;
     transition-duration: 250ms;
-    transition-property: margin, padding, width;
-    width: 100%;
+    transition-property: width, margin;
     text-decoration: none;
     margin-bottom: 2rem;
+    margin-left: 0;
 }
 
+
 .project-card:hover{
-    width: calc(var(--card-width) + 2vw);
-    /* padding-left: 1vw;
-    padding-right: 1vw; */
-    margin-left: -1vw;
+    width: calc(100% + 1rem);
+    margin-left: -0.5rem;
 }
 
 .proj-card-keyart-holder{
     width: 100%;
     border-radius: inherit;
     overflow: hidden;
-    max-height: var(--card-width);
+    max-height: 35cqh;
     display: grid;
     justify-content: center;
 }
 
 .project-card-keyart{
-    width: calc(var(--card-width) + 2vw);
+    width: calc(100cqw + 1rem);
     position: relative;
     border-radius: inherit;
     object-fit: cover;
     transition-duration: inherit;
-    transition-property: width, left;
+    transition: inherit;
 }
 
 .project-card-icon{
@@ -132,7 +136,7 @@ d8888b. d8888b.  .d88b.     d88b d88888b  .o88b. d888888b       .o88b.  .d8b.  d
 }
 
 .project-card-body{
-    width: 100%;
+    width: 100cqw;
     margin:0;
     display: flex;
     flex-direction: column;
@@ -152,7 +156,7 @@ d8888b. d8888b.  .d88b.     d88b d88888b  .o88b. d888888b       .o88b.  .d8b.  d
 .project-card-summary{
     margin-top: 0.5em;
     text-align: left;
-    max-width: calc(var(--card-width) * 0.85);
+    max-width: calc(85cqw);
     margin-bottom: 0.5em;
     transition-duration: 250ms;
     transition-property: margin, padding, max-width;
@@ -164,8 +168,7 @@ d8888b. d8888b.  .d88b.     d88b d88888b  .o88b. d888888b       .o88b.  .d8b.  d
     display: grid;
     grid-auto-flow: row;
     justify-content: space-between;
-    --card-width: 38vw;
-    grid-template-columns: var(--card-width) var(--card-width);
+    grid-template-columns: repeat(auto-fill, minmax(38rem, 1fr))
 }
 
 .project-card-date{
@@ -173,60 +176,6 @@ d8888b. d8888b.  .d88b.     d88b d88888b  .o88b. d888888b       .o88b.  .d8b.  d
 }
 
 .post-holder .card{
-    min-height: 10vw;
-}
-
-@media (max-aspect-ratio: 13/10){
-    .card-holder{
-        --card-width: 25vw;
-        grid-template-columns: var(--card-width) var(--card-width) var(--card-width);
-    }
-}
-
-@media (max-aspect-ratio: 11/10){
-    .card-holder{
-        --card-width: 40vw;
-        grid-template-columns: var(--card-width) var(--card-width);
-    }
-
-    .post-holder{
-        --card-width: 85vw;
-        grid-template-columns: var(--card-width);
-    }
-}
-
-@media (max-aspect-ratio: 7/10){
-    .card-holder{
-        --card-width: 90vw;
-        grid-template-columns: var(--card-width);
-    }
-
-    .project-card:not(.post-card){
-        flex-direction: row;
-    }
-
-    .project-card-summary{
-        max-width: calc(var(--card-width) * 0.6);
-    }
-    
-    .project-card-icon{
-        margin: 0.5rem 0.25rem 0.5rem 0.5rem;
-    }
-
-    .project-card:hover .project-card-icon{
-        margin: 0.25rem 0rem 0.25rem 0.25rem;
-    }
-
-    .proj-card-keyart-holder{
-        max-height: calc(var(--card-width) * 0.5);
-    }
-
-    .post-card .proj-card-keyart-holder{
-        max-height: var(--card-width)
-    }
-
-    .post-holder{
-        --card-width: 90vw;
-        grid-template-columns: var(--card-width);
-    }
+    height: min-content;
+    min-height: 95%;
 }

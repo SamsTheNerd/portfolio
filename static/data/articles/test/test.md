@@ -109,7 +109,7 @@ katex time display mode: $$\sum_{i=0}^n \frac{k(k-1)}{2}$$
 
 {{ "https://example.com" | testAsync }}
 
-{{ "https://www.dcuniverseinfinite.com/collections/edt-dcuniverse-pride" | openGraphTest }}
+{{ "https://www.dcuniverseinfinite.com/collections/edt-dcuniverse-pride" | mkOGLink | addClasses(["smallLinkEmbed"]) }}
 
 
 <details>

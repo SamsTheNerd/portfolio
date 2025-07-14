@@ -10,6 +10,10 @@ const hljs = require('highlight.js');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
+const ogs = require('open-graph-scraper-lite');
+
+const fetch = require("node-fetch")
+
 const Prism = require('prismjs');
 const loadLanguages = require('prismjs/components/');
 loadLanguages()
@@ -110,6 +114,25 @@ var getDescription = async (descriptable) => {
     }
 }
 
+// string -> Promise<response>
+var URL_LOOKUP_CACHE = {}
+
+// returns response promise
+function getUrlCached(url){
+    if(!URL_LOOKUP_CACHE[url]){
+        URL_LOOKUP_CACHE[url] = fetch(url);
+    }
+    return URL_LOOKUP_CACHE[url];
+}
+
+async function getOpenGraphData(url){
+    var res = await getUrlCached(url)
+    var text = await res.text();
+    var data = await ogs({ html: text})
+    const { result } = data;
+    return result;
+}
+
 module.exports = {
     "hbgSVG": makeHeartBGSVG,
     "getDesc": getDescription,
@@ -117,5 +140,7 @@ module.exports = {
     "makeThemedHBG": makeThemedHBG,
     "makeThemedVars": makeThemedVars,
     "formatDesc": formatDesc,
-    "nunjucksRenderAsync": nunjucksRenderAsync
+    "nunjucksRenderAsync": nunjucksRenderAsync,
+    "getOpenGraphData": getOpenGraphData,
+    "getUrlCached": getUrlCached
 }

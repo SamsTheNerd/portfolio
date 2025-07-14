@@ -1,4 +1,5 @@
 {% macro mkProjCard(project) %}
+<div class="card-container-wrapper"> 
 <a class="project-card card bgsync" href="/projects/{{ project.id }}">
     {% if project.keyart %}
         <div class="proj-card-keyart-holder">
@@ -16,10 +17,12 @@
         <p class="project-card-summary">{{ project.description }}</p>
     </div>
 </a>
+</div>
 {% endmacro %}
 
 
 {% macro mkPostCard(post) %}
+<div class="card-container-wrapper"> 
 <a class="project-card post-card card bgsync" href="/articles/{{ post.id }}">
     {% if post.banner %}
         <div class="proj-card-keyart-holder">
@@ -32,4 +35,5 @@
         <p class="project-card-summary">{{ post.description }}</p>
     </div>
 </a>
+</div>
 {% endmacro %}

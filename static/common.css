@@ -12,6 +12,7 @@
     /* default selection colors */
     --sel-back: var(--pale-green);
     --sel-fore: var(--dark-background);
+    font-size: 1.1rem;
 }
 
 body{
@@ -33,7 +34,6 @@ body{
 }
 
 * {
-    font-size: calc(1vw + 4px);
     color: var(--pale-pink);
 }
 
@@ -311,26 +311,7 @@ footer *{
     top: 0.35em;
 }
 
-@media (max-aspect-ratio: 11/10){
-    * {
-        font-size: calc(1.5vw + 8px);
-    }
-
-    #main-content{
-        width: 85vw;
-        left: 7.5vw;
-    }
-
-    .project-desc{
-        max-width: 100%;
-    }
-
-}
-
-@media (max-aspect-ratio: 7/10){
-    * {
-        font-size: calc(2vw + 12px);
-    }
+@media (width <= 60rem) {
 
     #main-content{
         width: 88vw;

@@ -119,6 +119,10 @@
     margin-bottom: 0.5rem !important;
 }
 
+.smallLinkEmbed{
+    max-width: 10rem;
+}
+
 details{
     min-height: 0 !important;
     padding-top: 1rem;

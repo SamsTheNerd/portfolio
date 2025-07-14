@@ -4,6 +4,9 @@ const tagUtils = require("../utils/tagutils.js")
 const imgUtils = require("../utils/imgutils.js")
 const ogs = require('open-graph-scraper-lite');
 
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+
 const fetch = require("node-fetch")
 
 var initFilters = (env) => {
@@ -49,12 +52,30 @@ var initFilters = (env) => {
         var text = await res.text();
         var data = await ogs({ html: text})
         const { result } = data;
-        console.log(result)
         if(result.ogImage){
             callback(null, `<img src="${result.ogImage[0].url}">`)
         } else {
             callback(null, input)
         }
+    }, true)
+    addAsyncFilter(env, "mkOGLink", async (url) => {
+        var ogData = await siteUtils.getOpenGraphData(url)
+        console.log(ogData);
+        return `<div class="ogLink card hbg-blurry" href="${url}"><img src="${ogData.ogImage[0].url}"></div>`
+    })
+    env.addFilter("addClasses", (html, classes) => {
+        var dom = new JSDOM(html)
+        var tl = dom.window.document.body.childNodes[0]
+        classes.forEach(cls => tl.classList.add(cls))
+        return dom.serialize();
+    });
+}
+
+// async callback takes input and returns promise of string
+function addAsyncFilter(env, name, asyncCallback){
+    env.addFilter(name, async (input, callback) => {
+        var resPromise = asyncCallback(input)
+        resPromise.then(res => callback(null, res), err => callback(err, null))
     }, true)
 }
 
