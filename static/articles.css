@@ -102,6 +102,18 @@
     fill: var(--sam-green);
 }
 
+
+.videoEmbed {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 15rem;
+    max-width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: contain;
+    filter: drop-shadow(0 0 0.5rem var(--sam-green));
+}
+
 .katex-display{
     margin-top:    0.5rem !important;
     margin-bottom: 0.5rem !important;

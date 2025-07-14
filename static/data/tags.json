@@ -23,5 +23,10 @@
         "id": "web",
         "name": "Web",
         "theme": "yellow"
+    },
+    "compsci": {
+        "id": "compsci",
+        "name": "CompSci",
+        "theme": "lime"
     }
 }

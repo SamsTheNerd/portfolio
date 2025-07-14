@@ -4,6 +4,7 @@ const themes = require("../static/data/themes.json")
 
 const { Marked } = require('marked')
 const markedKatex = require("marked-katex-extension");
+const {gfmHeadingId} = require("marked-gfm-heading-id");
 const hljs = require('highlight.js');
 
 const jsdom = require("jsdom");
@@ -62,6 +63,9 @@ const marked = new Marked(
       }
     })
   ).use(markedKatex())
+  .use(gfmHeadingId({
+	prefix: "sectionheading-",
+}))
 
 
 var formatDesc = (rawDesc) => {

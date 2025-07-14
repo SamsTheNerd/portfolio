@@ -8,11 +8,12 @@
 ~ inline (once it's out)
 - potion icons
 - month of swords
-- minegrapht
+~ minegrapht
+- drapery?
 
 ## Web Dev
 ~ Quatalog
-- Portfolio itself
+~ Portfolio itself
 
 ## Graphic Design (category, not class)
 
@@ -44,3 +45,5 @@
 ## Coding?
 - voltorb flip solver (need to upload it)
 - pico wordle - maybe ? would need to upload it and also it's not entirely finished
+- haskell connections
+- hoki

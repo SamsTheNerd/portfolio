@@ -1,0 +1,23 @@
+{% extends "page.njk" %}
+
+{% block header %}
+    <link rel="icon" type="image/x-icon" href="/assets/pfp.png">
+    <meta property="og:title" content="Sam's Now" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://samsthenerd.com/now" />
+    {# <meta property="og:description" content="{{ project.summary }}" /> #}
+    <link rel="stylesheet" href="/articles.css">
+{% endblock %}
+
+{# {% block title %}{{ project.name }}{% endblock %} #}
+
+{% block maincontent %}
+    <h2>What I'm up to now</h2>
+    {{ nowestNow.content }}
+    {% for oldNow in oldNows %}
+        <details class="card bgsync">
+            <summary>{{oldNow.date}}</summary>
+        {{ oldNow.content }}
+        </details>
+    {% endfor %}
+{% endblock %}

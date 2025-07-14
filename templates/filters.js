@@ -6,6 +6,9 @@ const imgUtils = require("../utils/imgutils.js")
 var initFilters = (env) => {
     env.addFilter("mkImg", imgUtils.makeImage);
     env.addFilter("mkGallery", imgUtils.makeGallery);
+    env.addFilter("youtubeEmbed", videoId => {
+        return `<iframe class="youtubeEmbed videoEmbed" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
+    })
     env.addFilter("mkHBG", siteUtils.hbgSVG);
     env.addFilter("themedHBG", siteUtils.makeThemedHBG);
     env.addFilter("themedVars", siteUtils.makeThemedVars);

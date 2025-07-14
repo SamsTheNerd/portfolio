@@ -1,6 +1,7 @@
 const fs = require('node:fs');
 const nunjucks = require("nunjucks")
 const genutils = require("./utils.js")
+const siteutils = require('../utils/siteutils.js');
 const Articles = require("./articles.js")
 const tags = require("../static/data/tags.json")
 const njkFilters = require("../templates/filters.js")
@@ -19,6 +20,31 @@ var generateTagPage = (tagData) => {
 var generateMainPage = () => {
     // console.log(`tags: ${Object.keys(tags)}`);
     return nunjucks.render("main_page.njk", {ctx: ctx, tags: Object.keys(tags)});
+}
+
+const NOW_DATE_GETTER = /([0-9]*)-([0-9]*-([0-9]*))#(.*)/sm;
+
+
+// returns HTML string
+var generateNowPage = () => {
+
+    nowContentsAll = fs.readFileSync(`./static/data/nowpage.md`, {encoding: 'utf-8'});
+    nows = nowContentsAll.split("#NOW: ")
+    nowsList = [];
+    for(var i = 1; i < nows.length; i++){
+        nowRes = NOW_DATE_GETTER.exec(nows[i]);
+        nowDate = new Date(parseInt(nowRes[1]), parseInt(nowRes[2])-1, parseInt(nowRes[3]))
+        nowsList.push({
+            date: nowDate.toLocaleString("en-US", {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                }),
+            content: siteutils.formatDesc(nowRes[4])
+        });
+    }
+    return nunjucks.render("now_page.njk", {ctx: ctx, tags: Object.keys(tags), nowestNow: nowsList.shift(), oldNows:nowsList});
 }
 
 var generateAll = () => {
@@ -41,6 +67,9 @@ var generateAll = () => {
 
     var mainHtml = generateMainPage();
     genutils.writeFile(`./_site`, `index.html`, mainHtml);
+
+    var nowHtml = generateNowPage();
+    genutils.writeFile(`./_site/now`, `index.html`, nowHtml);
     
     // make each project page
     Object.values(Articles.getProjectData()).forEach(project => {

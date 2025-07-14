@@ -39,6 +39,14 @@ code.hljs, code.hljs *{
     --sel-fore: var(--hl-color);
 }
 
+
+code:not(.hljs) {
+    background: var(--ln-D5-purple);
+    padding: 0.25em;
+    filter: drop-shadow(0 0 0.1em var(--ln-pink));
+    border-radius: 0.25em
+}
+
 .token.keyword {
     --hl-color: var(--ln-pink);
 }
