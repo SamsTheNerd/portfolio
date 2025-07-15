@@ -1,8 +1,6 @@
 
 .card{
-    width: 100%;
-    height: min-content;
-    min-height: 95%;
+    
     position: relative;
     --this-border-radius: 1rem;
     border-radius: var(--this-border-radius);
@@ -14,13 +12,9 @@
     transition-property: padding-left, margin-left, padding-right, margin-right;
     transition-duration: 0.25s;
     transition-timing-function: ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    background-image: url("./assets/HeartBackgroundVeryBlurred.png");
+    background-image: url("./assets/HeartBackgroundDarkerBlurred.png");
     background-size: 200px;
     background-repeat: repeat;
-    /* background-origin: border-box; */
 }
 
 .card:hover{
@@ -89,6 +83,12 @@ d8888b. d8888b.  .d88b.     d88b d88888b  .o88b. d888888b       .o88b.  .d8b.  d
     text-decoration: none;
     margin-bottom: 2rem;
     margin-left: 0;
+    width: 100%;
+    height: min-content;
+    min-height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
 }
 
 

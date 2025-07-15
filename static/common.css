@@ -2,8 +2,8 @@
 :root{
     --sam-green: #69eb96;
     --sam-pink: #eb69d7;
-    --pale-pink: #ebd3e7;
-    --pale-green: #d3ebdb;
+    --pale-pink: #fce1f8;
+    --pale-green: #e1fcea;
     --extra-dark-bg: #100f12;
     --dark-background: #18161A;
     --heart-mid-shadow: #1C1B1F;
@@ -21,8 +21,8 @@ body{
     margin-left: 0;
     margin-right: 0;
     --hbg-svg: url("./assets/HeartBackground.svg") !important;
-    background-image: url("./assets/HeartBackground.svg") !important;
-    background-color: var(--dark-background);
+    background-image: url("./assets/HeartBackgroundDarker.png") !important;
+    background-color: var(--extra-dark-bg);
     background-size: 200px;
     background-position: 0 0;
     background-repeat: repeat;
@@ -36,6 +36,7 @@ body{
 
 * {
     color: var(--pale-pink);
+    font-size: 1rem;
 }
 
 p{
@@ -76,7 +77,7 @@ blockquote{
 }
 
 .hbg-outline{
-    background-image: url("./assets/HeartBackgroundBlurred.png") !important;
+    background-image: url("./assets/HeartBackgroundDarkerBlurred.png") !important;
     background-size: 200px;
     background-position: 0 0;
     background-repeat: repeat;
@@ -135,6 +136,12 @@ h3{
     margin-bottom: 0.1rem;
 }
 
+h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.1rem;
+    margin-top: 0.25rem;
+}
+
 hr {
     width: 100%;
     border: none;
@@ -158,7 +165,7 @@ a {
 }
 
 nav{
-    background-image: url("./assets/HeartBackgroundBlurred.png") !important;
+    background-image: url("./assets/HeartBackgroundDarkerBlurred.png") !important;
     background-size: 200px;
     background-position: 0 0;
     background-repeat: repeat;
@@ -180,7 +187,7 @@ nav{
     padding-right: 0.9rem;
     padding-top: 0.35rem;
     padding-bottom: 0.25rem;
-    border-radius: 2rem;
+    border-radius: 0.2rem;
     color: var(--lighter-dark);
     text-shadow: 1px 1px 1px var(--theme-light),
          -1px -1px 1px var(--theme-light);
@@ -197,7 +204,7 @@ nav{
 }
 
 footer{
-    background-image: url("./assets/HeartBackgroundBlurred.png") !important;
+    background-image: url("./assets/HeartBackgroundDarkerBlurred.png") !important;
     background-size: 200px;
     background-position: 0 0;
     background-repeat: repeat;
@@ -258,7 +265,7 @@ footer *{
 .project-desc{
     width: fit-content;
     position: relative;
-    max-width: min(40rem, 95vw);
+    max-width: min(50rem, 95vw);
     padding-left: 2rem;
     padding-right: 2rem;
 }
@@ -339,4 +346,24 @@ footer *{
         width: 95vw;
         left: 2.5vw;
     }
+}
+
+.ogLink{
+    max-width: 15rem;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin:1rem;
+}
+
+.ogLink img{
+    width: 100%;
+    border-radius: inherit;
+}
+
+.ogLink p{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-style: italic;
 }

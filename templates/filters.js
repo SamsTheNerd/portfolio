@@ -61,7 +61,10 @@ var initFilters = (env) => {
     addAsyncFilter(env, "mkOGLink", async (url) => {
         var ogData = await siteUtils.getOpenGraphData(url)
         console.log(ogData);
-        return `<div class="ogLink card hbg-blurry" href="${url}"><img src="${ogData.ogImage[0].url}"></div>`
+        return `<a class="ogLink card" href="${url}" target="_blank">
+        <p>${ogData.ogTitle}</p>
+        <img src="${ogData.ogImage[0].url}">
+        </a>`
     })
     env.addFilter("addClasses", (html, classes) => {
         var dom = new JSDOM(html)

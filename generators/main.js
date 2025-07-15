@@ -42,7 +42,7 @@ var generateNowPage = async () => {
                 month: "long",
                 day: "numeric",
                 }),
-            content: siteutils.formatDesc(nowRes[4])
+            content: await siteutils.formatDesc(nowRes[4])
         });
     }
     return await siteutils.nunjucksRenderAsync("now_page.njk", {ctx: ctx, tags: Object.keys(tags), nowestNow: nowsList.shift(), oldNows:nowsList});
@@ -81,11 +81,11 @@ async function generateAll() {
     // make each project page
     var projectData = await Articles.getProjectData();
     console.log("got projectData")
-    Object.values(projectData).map(async project => {
+    await Promise.all(Object.values(projectData).map(async project => {
         var projectHtml = await Articles.generateArticlePage(project);
         genutils.writeFile(`./_site/projects/${project.id}`, `index.html`, projectHtml);
         console.log(`made project page: ${project.id}`)
-    });
+    }));
 
     // make full project page
     var fakeAllProj = {
