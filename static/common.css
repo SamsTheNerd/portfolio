@@ -12,7 +12,8 @@
     /* default selection colors */
     --sel-back: var(--pale-green);
     --sel-fore: var(--dark-background);
-    font-size: 1.1rem;
+    --sel-shadow-one: var(--sam-green);
+    --sel-shadow-two: var(--sam-pink);
 }
 
 body{
@@ -101,14 +102,18 @@ blockquote{
     border-radius: calc(var(--this-border-radius) + var(--gradWidth) / 2);
 }
 
-::-moz-selection { /* Code for Firefox */
-    background: var(--sel-back);
-    color: var(--sel-fore);
-}
 
 ::selection {
     background: var(--sel-back);
     color: var(--sel-fore);
+    text-shadow: 
+        0.08em -0.07em var(--sel-shadow-one), 
+        0.04em -0.03em var(--sel-shadow-two), 
+        -0.04em 0.03em var(--sel-shadow-two), 
+        -0.12em 0.1em var(--sel-shadow-one), 
+        -0.08em 0.07em var(--sel-shadow-two),
+        0.08em 0.07em var(--sel-shadow-two),
+        -0.08em -0.07em var(--sel-shadow-two);
 }
 
 .blurry{
@@ -160,11 +165,12 @@ nav{
     background-attachment: local;
     box-shadow: 0 0 1rem 0rem var(--sam-green);
     width: 100%;
-    height: 4rem;
+    height: min-content;
     margin-bottom: 2rem;
     top: 0;
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -182,6 +188,8 @@ nav{
     text-decoration: none;
     font-weight: bold;
     margin-left: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 #leg{
@@ -248,10 +256,14 @@ footer *{
 }
 
 .project-desc{
-    min-width: 60%;
-    max-width: 60%;
-    position:relative;
+    width: fit-content;
+    position: relative;
+    max-width: min(40rem, 95vw);
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
+
+/* @media (min-width: 85rem) {.project-desc {width: 65rem;}} */
 
 .tag-shelf{
     display: flex;
@@ -295,6 +307,7 @@ footer *{
 
 .tag::selection{
     background: var(--theme-light);
+    text-shadow: none;
 }
 
 .shield{
@@ -311,10 +324,19 @@ footer *{
     top: 0.35em;
 }
 
+@media (width <= 81rem) {
+
+    #main-content{
+        left: 5vw;
+        width: 90vw;
+    }
+}
+
+
 @media (width <= 60rem) {
 
     #main-content{
-        width: 88vw;
-        left: 4vw;
+        width: 95vw;
+        left: 2.5vw;
     }
 }

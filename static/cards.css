@@ -168,7 +168,7 @@ d8888b. d8888b.  .d88b.     d88b d88888b  .o88b. d888888b       .o88b.  .d8b.  d
     display: grid;
     grid-auto-flow: row;
     justify-content: space-between;
-    grid-template-columns: repeat(auto-fill, minmax(38rem, 1fr))
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr))
 }
 
 .project-card-date{

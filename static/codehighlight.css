@@ -36,7 +36,10 @@ code.hljs *{
 code.hljs, code.hljs *{
     --hl-color: var(--ln-D1-purple);
     color: var(--hl-color) !important;
-    --sel-fore: var(--hl-color);
+    --sel-back: var(--ln-D2-purple);
+    --sel-fore: var(--ln-D4-purple);
+    --sel-shadow-one: var(--ln-D2-purple);
+    --sel-shadow-two: var(--hl-color);
 }
 
 

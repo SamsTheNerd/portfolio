@@ -12,6 +12,14 @@
 
 ## What a fun article this is !
 
+### h3
+
+#### h4
+
+##### h5?
+
+###### h6 ?
+
 - it's got lists and *everything* ain't that **AWESOME**
 
 boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop boop 
@@ -106,10 +114,6 @@ eval e1@(ELit _) = return e1
 katex time : $\sum_{i=0}^n \frac{k(k-1)}{2}$
 
 katex time display mode: $$\sum_{i=0}^n \frac{k(k-1)}{2}$$
-
-{{ "https://example.com" | testAsync }}
-
-{{ "https://www.dcuniverseinfinite.com/collections/edt-dcuniverse-pride" | mkOGLink | addClasses(["smallLinkEmbed"]) }}
 
 
 <details>
