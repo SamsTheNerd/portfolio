@@ -14,7 +14,7 @@ Most recently I've spent the past few days cleaning up my website, adding proper
 
 I've been trying to expand my wardrobe recently. For a while now I've worn mostly black skirts and shirts but lately I've been feeling more earth tones (I suppose actually the shift started about a year ago, summer 2024ish, but it's accelerated recently). I've gotten a few new dresses so there's slightly more shape options too. I still need some more shirts though. I think button ups or blousier shirts in cream/offwhite or brown would be cute. I also recently got some jewelry from my granny after she passed that I've been enjoying wearing. And it's nice to have little reminders of her with me.
 
-My converse wore out after about a year and a half, the inner and outer soles both got holes in them! I got a pair of [Solovair Brown Boots](https://github.com/SamsTheNerd/HexGloop/blob/main/common/src/main/java/com/samsthenerd/hexgloop/casting/MishapThrowerWrapper.java) that I'm hoping will last longer so I don't have to deal with replacing shoes so often. 
+My converse wore out after about a year and a half, the inner and outer soles both got holes in them! I got a pair of [Solovair Brown Boots](https://us.nps-solovair.com/collections/brown/products/s8-551-ch-g) that I'm hoping will last longer so I don't have to deal with replacing shoes so often. 
 
 ### Media I'm Enjoying :>
 
