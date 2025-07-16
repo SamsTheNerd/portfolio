@@ -55,6 +55,7 @@
     display: grid;
     grid-auto-flow: row;
     justify-content: space-between;
+    justify-items: center;
     grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
 }
 
@@ -147,7 +148,6 @@ d8888b. d8888b.  .d88b.     d88b d88888b  .o88b. d888888b       .o88b.  .d8b.  d
     min-width: 80%;
     max-width: 90%;
     margin-top: 0.5em;
-    font-size: 2em;
     padding-bottom: 0.1em;
     border-bottom: solid var(--pale-pink);
     text-align: center;

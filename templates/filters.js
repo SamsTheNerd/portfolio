@@ -72,6 +72,9 @@ var initFilters = (env) => {
         classes.forEach(cls => tl.classList.add(cls))
         return dom.serialize();
     });
+    env.addFilter("musicLink", (url) => {
+        return `<div class="music-embed card"><iframe width="100%" height="150" src="https://embed.odesli.co/?url=${encodeURIComponent(url)}&theme=dark" frameborder="0" allowtransparency allowfullscreen sandbox="allow-same-origin allow-scripts allow-presentation allow-popups allow-popups-to-escape-sandbox"></iframe></div>`
+    })
 }
 
 // async callback takes input and returns promise of string

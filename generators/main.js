@@ -32,7 +32,7 @@ var generateNowPage = async () => {
     nowContentsAll = await fs.readFileSync(`./static/data/nowpage.md`, {encoding: 'utf-8'});
     nows = nowContentsAll.split("#NOW: ")
     nowsList = [];
-    for(var i = 1; i < nows.length; i++){
+    for(var i = 1; i <= 1; i++){
         nowRes = NOW_DATE_GETTER.exec(nows[i]);
         nowDate = new Date(parseInt(nowRes[1]), parseInt(nowRes[2])-1, parseInt(nowRes[3]))
         nowsList.push({
@@ -64,27 +64,25 @@ async function generateAll() {
     var njkenv = nunjucks.configure('templates', { autoescape: false });
     njkFilters.initFilters(njkenv);
 
-    await Articles.makeBlog();
+    var allSitePromises = []
 
-    console.log("made blog")
+    allSitePromises.push(Articles.makeBlog());
 
     var mainPromise = generateMainPage().then(mainHtml => genutils.writeFile(`./_site`, `index.html`, mainHtml));
-    await mainPromise;
+    allSitePromises.push(mainPromise);
 
-    console.log("made main")
+    allSitePromises.push(siteutils.nunjucksRenderAsync("404_page.njk", {ctx: ctx, tags: Object.keys(tags)}).then(html404 => genutils.writeFile(`./_site`, `404.html`, html404)))
 
     var nowPromise = generateNowPage().then(nowHtml => genutils.writeFile(`./_site/now`, `index.html`, nowHtml));
-    await nowPromise;
-
-    console.log("made now")
+    allSitePromises.push(nowPromise);
     
     // make each project page
-    var projectData = await Articles.getProjectData();
-    console.log("got projectData")
-    await Promise.all(Object.values(projectData).map(async project => {
-        var projectHtml = await Articles.generateArticlePage(project);
-        genutils.writeFile(`./_site/projects/${project.id}`, `index.html`, projectHtml);
-        console.log(`made project page: ${project.id}`)
+    allSitePromises.push(Articles.getProjectData().then(projectData => {
+        return Promise.all(Object.values(projectData).map(async project => {
+            var projectHtml = await Articles.generateArticlePage(project);
+            genutils.writeFile(`./_site/projects/${project.id}`, `index.html`, projectHtml);
+            console.log(`made project page: ${project.id}`)
+        }));
     }));
 
     // make full project page
@@ -99,18 +97,16 @@ async function generateAll() {
         "color": "green"
     }
 
-    var fakeAllProjHtml = await generateTagPage(fakeAllProj);
-    var fakeAllPostsHtml = await generateTagPage(fakeAllPosts);
-    genutils.writeFile(`./_site/projects`, `index.html`, fakeAllProjHtml);
-    genutils.writeFile(`./_site/changelog`, `index.html`, fakeAllPostsHtml);
+    allSitePromises.push(generateTagPage(fakeAllProj).then(fakeAllProjHtml => genutils.writeFile(`./_site/projects`, `index.html`, fakeAllProjHtml)));
+    allSitePromises.push(generateTagPage(fakeAllPosts).then(fakeAllPostsHtml => genutils.writeFile(`./_site/changelog`, `index.html`, fakeAllPostsHtml)));
 
     // make tag pages
     tagKeys = Object.keys(tags);
     for(var t = 0; t < tagKeys.length; t++){
         var tag = tags[tagKeys[t]]
-        var tagHtml = await generateTagPage(tag);
-        genutils.writeFile(`./_site/tags/${tag.id}`, `index.html`, tagHtml);
+        allSitePromises.push(generateTagPage(tag).then(tagHtml => genutils.writeFile(`./_site/tags/${tag.id}`, `index.html`, tagHtml)));
     }
+    await Promise.all(allSitePromises);
 }
 
 generateAll();

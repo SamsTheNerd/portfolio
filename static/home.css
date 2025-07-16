@@ -1,8 +1,8 @@
 
 #intro-section{
     position: relative;
-    width: 80vw;
-    left: 10vw;
+    width: 100%;
+    left: 0;
     top: 2vw;
     display: flex;
     align-items: center;
@@ -34,6 +34,9 @@
     padding-right: 1rem;
     padding-bottom: 1rem;
     --top-color-base: var(--sam-green);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 li{
@@ -45,7 +48,6 @@ li{
     flex-direction: column;
     align-content: center;
     width: 80%;
-    left: 10%;
     position: relative;
 }
 

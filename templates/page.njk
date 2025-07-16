@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="/common.css">
     <link rel="stylesheet" href="/codehighlight.css">
     <link rel="stylesheet" href="/cards.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 
     <!-- KaTeX stylesheet -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
@@ -36,6 +38,7 @@
         {# <a id="tags-link" class="nav-link hbg bgsync" style="--hbg-svg: {{ 'green' | themedHBG }}; {{ 'green' | themedVars }}" href="/tags/" >Tags</a> #}
         <a id="projects-link" class="nav-link hbg bgsync" style="--hbg-svg: {{ projectlinkcolor | themedHBG }}; {{ projectlinkcolor | themedVars }}" href="/projects/" >Projects</a>
         <a id="blog-link" class="nav-link hbg bgsync" style="--hbg-svg: {{ bloglinkcolor | themedHBG }}; {{ bloglinkcolor | themedVars }}" href="/changelog/" >Changelog (Blog)</a>
+        <a id="now-link" class="nav-link hbg bgsync" style="--hbg-svg: {{ bloglinkcolor | themedHBG }}; {{ bloglinkcolor | themedVars }}" href="/now/" >Now</a>
     </nav>
     {% block premain %}{% endblock %}
     <main id="main-content">

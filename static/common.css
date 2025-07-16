@@ -14,6 +14,15 @@
     --sel-fore: var(--dark-background);
     --sel-shadow-one: var(--sam-green);
     --sel-shadow-two: var(--sam-pink);
+
+    /* some font sizes to use so we can bump stuff up on mobile? */
+    --fs-12px-ish: 0.75rem;
+    --fs-16px-ish: 1rem;
+    --fs-20px-ish: 1.25rem;
+    --fs-24px-ish: 1.5rem;
+    --fs-32px-ish: 2rem;
+    --fs-48px-ish: 3rem;
+    --fs-64px-ish: 4rem;
 }
 
 body{
@@ -36,11 +45,11 @@ body{
 
 * {
     color: var(--pale-pink);
-    font-size: 1rem;
+    font-size: var(--fs-16px-ish);
 }
 
 p{
-    line-height: 130%;
+    line-height: 1.7em;
 }
 
 blockquote{
@@ -122,24 +131,24 @@ blockquote{
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: var(--fs-64px-ish);
 }
 
 h2{
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    font-size: var(--fs-48px-ish);
+    margin-bottom: 0.3em;
+    margin-top: 0.3em;
 }
 
 h3{
-    font-size: 2rem;
-    margin-bottom: 0.1rem;
+    font-size: var(--fs-32px-ish);
+    margin-bottom: 0.1em;
 }
 
 h4 {
-    font-size: 1.5rem;
-    margin-bottom: 0.1rem;
-    margin-top: 0.25rem;
+    font-size: var(--fs-24px-ish);
+    margin-bottom: 0.25em;
+    margin-top: 0.75em;
 }
 
 hr {
@@ -149,7 +158,8 @@ hr {
 }
 
 li::marker{
-    content: '♥︎ '
+    content: '♥︎ ';
+    font-size: 1.25em;
 }
 
 center {
@@ -182,19 +192,19 @@ nav{
 }
 
 .nav-link{
-    --gradWidth: 0.1rem;
-    padding-left: 0.9rem;
-    padding-right: 0.9rem;
+    --gradWidth: 2px;
+    padding-left: 14px;
+    padding-right: 14px;
     padding-top: 0.35rem;
-    padding-bottom: 0.25rem;
-    border-radius: 0.2rem;
+    padding-bottom: 0.2rem;
+    border-radius: 3px;
     color: var(--lighter-dark);
     text-shadow: 1px 1px 1px var(--theme-light),
          -1px -1px 1px var(--theme-light);
-    font-size: 1.5rem;
+    font-size: var(--fs-24px-ish);
     text-decoration: none;
     font-weight: bold;
-    margin-left: 1rem;
+    margin-left: 16px;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
@@ -221,7 +231,7 @@ footer{
 }
 
 footer *{
-    font-size: 0.75rem;
+    font-size: var(--fs-12px-ish);
 }
 
 #main-content{
@@ -266,11 +276,9 @@ footer *{
     width: fit-content;
     position: relative;
     max-width: min(50rem, 95vw);
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 20px;
+    padding-right: 16px;
 }
-
-/* @media (min-width: 85rem) {.project-desc {width: 65rem;}} */
 
 .tag-shelf{
     display: flex;
@@ -286,7 +294,7 @@ footer *{
     padding-top: 0.4em;
     padding-bottom: 0.25em;
     --extra-space: 0;
-    font-size: 1.25rem;
+    font-size: var(--fs-20px-ish);
     --this-border-radius: 2em;
     border-radius: var(--this-border-radius);
     transition-duration: 250ms;
@@ -335,7 +343,7 @@ footer *{
 
     #main-content{
         left: 5vw;
-        width: 90vw;
+        width: 90%;
     }
 }
 
@@ -343,27 +351,56 @@ footer *{
 @media (width <= 60rem) {
 
     #main-content{
-        width: 95vw;
+        width: 95%;
         left: 2.5vw;
     }
 }
 
 .ogLink{
-    max-width: 15rem;
     width: fit-content;
+    max-width: 20rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin:1rem;
+    height: fit-content;
+}
+
+.ogLink:has(img){
+    width: min-content;
 }
 
 .ogLink img{
-    width: 100%;
+    aspect-ratio: auto;
+    max-width: 15rem;
     border-radius: inherit;
+    max-height: 15rem;
+    height: auto;
 }
 
 .ogLink p{
     padding-left: 1rem;
     padding-right: 1rem;
     font-style: italic;
+}
+
+.glitchy-text{
+    color: var(--sel-fore);
+    text-shadow: 
+        0.08em -0.07em var(--sel-shadow-one), 
+        0.04em -0.03em var(--sel-shadow-two), 
+        -0.04em 0.03em var(--sel-shadow-two), 
+        -0.12em 0.1em var(--sel-shadow-one), 
+        -0.08em 0.07em var(--sel-shadow-two),
+        0.08em 0.07em var(--sel-shadow-two),
+        -0.08em -0.07em var(--sel-shadow-two);
+}
+
+.music-embed{
+    height: min-content;
+    margin: 1rem;
+}
+
+.music-embed iframe{
+    border-radius: inherit;
 }

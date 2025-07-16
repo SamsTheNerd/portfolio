@@ -26,7 +26,7 @@
   }
 
 code.hljs{
-    font-size: 0.8em;
+    font-size: var(--fs-12px-ish);
 }
 
 code.hljs *{

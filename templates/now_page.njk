@@ -12,12 +12,11 @@
 {# {% block title %}{{ project.name }}{% endblock %} #}
 
 {% block maincontent %}
-    <h2>What I'm up to now</h2>
-    {{ nowestNow.content }}
-    {% for oldNow in oldNows %}
-        <details class="card bgsync">
-            <summary>{{oldNow.date}}</summary>
-        {{ oldNow.content }}
-        </details>
-    {% endfor %}
+    <center><h2>What I'm up to now</h2></center>
+    <center><h4><i>Last updated {{ nowestNow.date }}</i></h4></center>
+    <div class="project-desc">
+        {{ nowestNow.content }}
+    </div>
+    <h3 id="about-now">Now?</h3>
+    <p>This is a <a href="https://nownownow.com/about" target="_blank">now page</a> where you can see generally what I'm up to in life. Hopefully I remember to update it from time to time! Past nows (thens if you will) can be found <a href="https://github.com/SamsTheNerd/portfolio/blob/main/static/data/nowpage.md" target="_blank">here</a></p>
 {% endblock %}
