@@ -6,8 +6,8 @@
 ~ wnboi 
 ~ hex addons page 
 ~ inline (once it's out)
-- potion icons
-- month of swords
+~ potion icons
+~ month of swords
 ~ minegrapht
 - drapery?
 

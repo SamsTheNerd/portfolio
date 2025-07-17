@@ -60,7 +60,6 @@ var initFilters = (env) => {
     }, true)
     addAsyncFilter(env, "mkOGLink", async (url) => {
         var ogData = await siteUtils.getOpenGraphData(url)
-        console.log(ogData);
         return `<a class="ogLink card" href="${url}" target="_blank">
         <p>${ogData.ogTitle}</p>
         <img src="${ogData.ogImage[0].url}">

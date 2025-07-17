@@ -13,7 +13,7 @@ var ctx = {
 
 // returns HTML string
 var generateTagPage = (tagData) => {
-    console.log(`making tag page: ${tagData.id}`)
+    // console.log(`making tag page: ${tagData.id}`)
     return siteutils.nunjucksRenderAsync("tag_page.njk", {tag: tagData, ctx: ctx});
 }
 
@@ -81,7 +81,7 @@ async function generateAll() {
         return Promise.all(Object.values(projectData).map(async project => {
             var projectHtml = await Articles.generateArticlePage(project);
             genutils.writeFile(`./_site/projects/${project.id}`, `index.html`, projectHtml);
-            console.log(`made project page: ${project.id}`)
+            // console.log(`made project page: ${project.id}`)
         }));
     }));
 
