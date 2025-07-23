@@ -103,7 +103,7 @@ async function generateAll() {
     // make tag pages
     tagKeys = Object.keys(tags);
     for(var t = 0; t < tagKeys.length; t++){
-        var tag = tags[tagKeys[t]]
+        const tag = tags[tagKeys[t]]
         allSitePromises.push(generateTagPage(tag).then(tagHtml => genutils.writeFile(`./_site/tags/${tag.id}`, `index.html`, tagHtml)));
     }
     await Promise.all(allSitePromises);

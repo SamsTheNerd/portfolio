@@ -28,5 +28,10 @@
         "id": "compsci",
         "name": "CompSci",
         "theme": "lime"
+    },
+    "games": {
+        "id": "games",
+        "name": "Games",
+        "theme": "yellow"
     }
 }

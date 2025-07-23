@@ -43,7 +43,11 @@
 - Lovely night eighties theme
 
 ## Coding?
-- voltorb flip solver (need to upload it)
-- pico wordle - maybe ? would need to upload it and also it's not entirely finished
 - haskell connections
 - hoki
+
+## Old
+- pico wordle - maybe ? would need to upload it and also it's not entirely finished
+- voltorb flip solver (need to upload it) (webbed site + c++)
+- QR Picross? lol?
+- 
