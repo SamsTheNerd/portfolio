@@ -19,9 +19,9 @@ You can find the game and installation instructions in [its github repo](https:/
 
 {{
     [
-        { src: "https://github.com/SamsTheNerd/HaskellConnections/blob/main/startupscreen.png?raw=true", desc: "Startup Screen"},
-        { src: "https://github.com/SamsTheNerd/HaskellConnections/blob/main/gameplayimage.png?raw=true", desc: "Gameplay"},
-        { src: "https://github.com/SamsTheNerd/HaskellConnections/blob/main/winscreen.png?raw=true", desc: "Win Screen"}
+        { src: "https://github.com/SamsTheNerd/HaskellConnections/blob/main/startupscreen.png?raw=true", description: "Startup Screen"},
+        { src: "https://github.com/SamsTheNerd/HaskellConnections/blob/main/gameplayimage.png?raw=true", description: "Gameplay"},
+        { src: "https://github.com/SamsTheNerd/HaskellConnections/blob/main/winscreen.png?raw=true", description: "Win Screen"}
     ] | mkGallery
 }}
 

@@ -17,7 +17,7 @@
 
 ## Graphic Design (category, not class)
 
-- Color theory projects (can probably just put them all as a single project)
+~ Color theory projects (can probably just put them all as a single project)
 
 ### Intro GD
 - Project 1 (Squares) - maybe only the ones i liked from it
@@ -28,7 +28,7 @@
 ### Typography
 - Exercise 1-3 -- might want to just pick the best out of these, but i did like most of them. Will need to re-export as png though 
 - Project 1 (self portrait) - this one toes the line of what do i want employers to see. Also i don't consider it my very best work
-- Project 2 (Bench) - it's kinda personal but yeah i want to include it, it's good work
+~ Project 2 (Bench) - it's kinda personal but yeah i want to include it, it's good work
 - Project 3 (Protest Poster) - I mean,, again, how much do i want to show employers
 - Project 4 (Magazine) - maybe? same as 1&3 + also I didn't super love that piece
 
@@ -40,10 +40,10 @@
 
 ### Other
 - Granny's logo/letterhead stuff
-- Lovely night eighties theme
+~ Lovely night eighties theme
 
 ## Coding?
-- haskell connections
+~ haskell connections
 - hoki
 
 ## Old

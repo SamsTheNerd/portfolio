@@ -1,5 +1,5 @@
 <articlemeta>
-    <name>Bench</name>
+    <name>Bench Typography</name>
     <keyart>typography/BenchFinal.png</keyart>
     <tags>
         <tag>art</tag>
