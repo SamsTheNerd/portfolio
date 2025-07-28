@@ -5,6 +5,9 @@
 
 {% block maincontent %}
     <h1 id="page-title">{{ tag.name}}</h1>
+    {% if tag.desc %}
+    <h4 id="tag-description">{{ tag.desc}}</h4>
+    {% endif %}
     <div class="card-holder">
         {% for project in tag.id | getProjects %}
             {{ cards.mkProjCard(project) }}

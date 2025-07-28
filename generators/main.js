@@ -61,6 +61,7 @@ async function generateAll() {
     } catch (err) {
         console.error(err);
     }
+    siteutils.loadUrlCache();
     var njkenv = nunjucks.configure('templates', { autoescape: false });
     njkFilters.initFilters(njkenv);
 
@@ -107,6 +108,7 @@ async function generateAll() {
         allSitePromises.push(generateTagPage(tag).then(tagHtml => genutils.writeFile(`./_site/tags/${tag.id}`, `index.html`, tagHtml)));
     }
     await Promise.all(allSitePromises);
+    await siteutils.writeUrlCache();
 }
 
 generateAll();

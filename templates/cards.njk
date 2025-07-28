@@ -14,7 +14,15 @@
     {% endif %}
     <div class="project-card-body">
         <h4 class="project-card-title">{{ project.name }}</h4>
-        <p class="project-card-summary">{{ project.description }}</p>
+        {% if project.description %}
+            <p class="project-card-summary">{{ project.description }}</p>
+        {% endif %}
+    </div>
+    <div class="flex-spacer"></div>
+    <div class="project-card-tags">
+        {% for tagId in project.tags %}
+            {{ tagId | mkTag("span") }}
+        {% endfor %}
     </div>
 </a>
 </div>
@@ -33,6 +41,12 @@
         <h4 class="project-card-title">{{ post.title }}</h4>
         <p class="project-card-date">{{ post.date.toLocaleString('en-US', { timeZone: 'EST' }) }}</p>
         <p class="project-card-summary">{{ post.description }}</p>
+    </div>
+    <div class="flex-spacer"></div>
+    <div class="project-card-tags">
+        {% for tagId in post.tags %}
+            {{ tagId | mkTag("span") }}
+        {% endfor %}
     </div>
 </a>
 </div>

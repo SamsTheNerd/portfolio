@@ -31,7 +31,7 @@
     height: calc(100% + var(--gradWidth));
     border-radius: calc(var(--this-border-radius) + var(--gradWidth) / 2);
     background: linear-gradient(180deg, var(--top-color-base) 0%, var(--bottom-color-base) 100%);
-    z-index: -2;
+    z-index: -10;
 }
 
 .card::after{
@@ -44,7 +44,7 @@
     height: calc(100% + var(--gradWidth));
     border-radius: calc(var(--this-border-radius) + var(--gradWidth) / 2);
     background: linear-gradient(180deg, var(--top-color-hover) 0%, var(--bottom-color-hover) 100%);
-    z-index: -1;
+    z-index: -5;
     opacity: var(--backOpacity);
     transition: opacity 0.25s;
 }
@@ -73,20 +73,16 @@ d8888b. d8888b.  .d88b.     d88b d88888b  .o88b. d888888b       .o88b.  .d8b.  d
 .card-container-wrapper{
     container: card / inline-size;
     width: 93%;
+    margin-bottom: 2rem;
 }
 
 .project-card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     transition-duration: 250ms;
     transition-property: width, margin;
     text-decoration: none;
-    margin-bottom: 2rem;
     margin-left: 0;
     width: 100%;
-    height: min-content;
-    min-height: 95%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     align-items:center;
@@ -142,6 +138,7 @@ d8888b. d8888b.  .d88b.     d88b d88888b  .o88b. d888888b       .o88b.  .d8b.  d
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
 }
 
 .project-card-title{
@@ -158,8 +155,27 @@ d8888b. d8888b.  .d88b.     d88b d88888b  .o88b. d888888b       .o88b.  .d8b.  d
     text-align: left;
     max-width: calc(85cqw);
     margin-bottom: 0.5em;
-    transition-duration: 250ms;
-    transition-property: margin, padding, max-width;
+}
+
+.project-card-tags{
+    width: 100cqw;
+    display: flex;
+    flex-wrap:wrap;
+    position: relative;
+    z-index: 100;
+    margin-top: auto;
+    margin-bottom: 0.5em;
+    justify-content: center;
+}
+
+.project-card-tags span{
+    /* width: max-content; */
+    font-size: var(--fs-14px-ish);
+    --gradWidth: 4px !important;
+}
+
+.project-card-tags span::before{
+    --gradWidth: 4px !important;
 }
 
 .post-holder{

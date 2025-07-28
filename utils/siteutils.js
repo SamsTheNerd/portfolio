@@ -1,6 +1,7 @@
 const fs = require('node:fs');
 const nunjucks = require("nunjucks")
 const themes = require("../static/data/themes.json")
+const genutils = require("../generators/utils.js");
 
 const { Marked } = require('marked')
 const markedKatex = require("marked-katex-extension");
@@ -114,21 +115,44 @@ var getDescription = async (descriptable) => {
     }
 }
 
-// string -> Promise<response>
-var URL_LOOKUP_CACHE = {}
+// string -> Promise<response body text>
+var URL_LOOKUP_CACHE = undefined;
 
-// returns response promise
+function loadUrlCache(){
+    if(URL_LOOKUP_CACHE == undefined){
+        URL_LOOKUP_CACHE = {}
+        if(fs.existsSync("./cache/cached_urls.json")){
+            var cacheish = JSON.parse(fs.readFileSync("./cache/cached_urls.json"))
+            for(const urlKey of Object.keys(cacheish)){
+                URL_LOOKUP_CACHE[urlKey] = Promise.resolve(cacheish[urlKey]);
+            }
+        }
+    }
+}
+
+async function writeUrlCache(){
+    var urlJsonCache = {};
+    for(const urlKey of Object.keys(URL_LOOKUP_CACHE)){
+        await URL_LOOKUP_CACHE[urlKey].then(res => {
+            urlJsonCache[urlKey] = res
+        })
+    }
+    genutils.writeFile("./cache/", "cached_urls.json", JSON.stringify(urlJsonCache))
+}
+
+
+// returns response text promise
 function getUrlCached(url){
     if(!URL_LOOKUP_CACHE[url]){
-        URL_LOOKUP_CACHE[url] = fetch(url);
+        // console.log(`fetching url: ${url}`)
+        URL_LOOKUP_CACHE[url] = fetch(url).then(res => res.text())
     }
     return URL_LOOKUP_CACHE[url];
 }
 
 async function getOpenGraphData(url){
     var res = await getUrlCached(url)
-    var text = await res.text();
-    var data = await ogs({ html: text})
+    var data = await ogs({ html: res})
     const { result } = data;
     return result;
 }
@@ -142,5 +166,7 @@ module.exports = {
     "formatDesc": formatDesc,
     "nunjucksRenderAsync": nunjucksRenderAsync,
     "getOpenGraphData": getOpenGraphData,
-    "getUrlCached": getUrlCached
+    "getUrlCached": getUrlCached,
+    "loadUrlCache": loadUrlCache,
+    "writeUrlCache": writeUrlCache
 }
