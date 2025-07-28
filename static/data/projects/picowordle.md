@@ -4,6 +4,7 @@
     <keyart>https://github.com/SamsTheNerd/picowordle/blob/main/images/picowordle3ds.png?raw=true</keyart>
     <tags>
         <tag>games</tag>
+        <tag>software</tag>
     </tags>
 </articlemeta>
 
