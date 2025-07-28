@@ -124,6 +124,11 @@ d8888b. d8888b.  .d88b.     d88b d88888b  .o88b. d888888b       .o88b.  .d8b.  d
     transition-property: width, margin;
 }
 
+.project-card-icon-spacer{
+    flex-grow: 5000;
+    max-height: 8.5rem;
+}
+
 .project-card:hover .project-card-icon{
     width: 6.5rem;
     margin-bottom: 0.25rem;
