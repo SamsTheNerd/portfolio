@@ -12,9 +12,6 @@
 ## Design
 
 - Add link shelf to projects
-- Figure out tags on cards ?
-- Figure out tag listing page -- do we need it ?
-- Figure out main page
 
 ## Dev-y stuff
 

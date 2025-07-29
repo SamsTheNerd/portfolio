@@ -62,6 +62,9 @@ var articleFileToData = async (fileContent, id) => {
     var tags = [];
     metaDoc.querySelectorAll("tag").forEach(tag => tags.push(tag.innerHTML));
 
+    var priority = Number.parseFloat(queryOrElse(metaDoc, "priority", "5"))
+    var hidden = (queryOrElse(metaDoc, "hidden", undefined) != undefined)
+
     // TODO: grab rest of metadata
 
     return {
@@ -75,7 +78,9 @@ var articleFileToData = async (fileContent, id) => {
         "author": queryOrElse(metaDoc, "author", "sam"),
         "tags": tags,
         "description": queryOrElse(metaDoc, "description", queryOrElse(metaDoc, "summary", undefined)),
-        "content": articleContent
+        "content": articleContent,
+        "priority": priority,
+        "hidden": hidden
     }
 }
 
@@ -124,6 +129,7 @@ var makeRSS = (articleCount) => {
 
     for(var i = 0; i < Math.min(sortedArticles.length, articleCount); i++){
         var article = BLOG_DATA[sortedArticles[i]]
+        if(article.hidden) continue;
         rssItems += 
         `\n
         <item>

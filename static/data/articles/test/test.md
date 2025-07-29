@@ -6,6 +6,7 @@
         <tag>mc-modding</tag>
     </tags>
     <date>5/6/2024 8:50pm</date>
+    <hidden/>
 </articlemeta>
 
 # WOW

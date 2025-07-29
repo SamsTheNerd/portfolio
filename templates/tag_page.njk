@@ -9,8 +9,10 @@
     <h4 id="tag-description">{{ tag.desc}}</h4>
     {% endif %}
     <div class="card-holder">
-        {% for project in tag.id | getProjects %}
-            {{ cards.mkProjCard(project) }}
+        {% for project in tag.id | getProjects | sortArticles %}
+            {% if not project.hidden%}
+                {{ cards.mkProjCard(project) }}
+            {% endif %}
         {% endfor %}
     </div>
     {% if (tag.id | getBlogPosts).length > 0 %}
@@ -18,8 +20,10 @@
             <h2> Changelog Posts </h2>
         {% endif %}
         <div class="post-holder">
-            {% for post in tag.id | getBlogPosts %}
-                {{ cards.mkPostCard(post) }}
+            {% for post in tag.id | getBlogPosts | sortArticles %}
+                {% if not post.hidden%}
+                    {{ cards.mkPostCard(post) }}
+                {% endif %}
             {% endfor %}
         </div>
     {% endif %}

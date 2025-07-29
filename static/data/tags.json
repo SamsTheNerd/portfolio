@@ -33,5 +33,10 @@
         "id": "games",
         "name": "Games",
         "theme": "yellow"
+    },
+    "teaching": {
+        "id": "teaching",
+        "name": "Teaching",
+        "theme": "pink"
     }
 }

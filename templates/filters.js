@@ -12,6 +12,7 @@ const fetch = require("node-fetch")
 var initFilters = (env) => {
     env.addFilter("mkImg", imgUtils.makeImage);
     env.addFilter("mkGallery", imgUtils.makeGallery);
+    env.addFilter("mkPDFEmbed", imgUtils.makePDFEmbed);
     env.addFilter("youtubeEmbed", videoId => {
         return `<iframe class="youtubeEmbed videoEmbed" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
     })
@@ -73,6 +74,9 @@ var initFilters = (env) => {
     });
     env.addFilter("musicLink", (url) => {
         return `<div class="music-embed card"><iframe width="100%" height="150" src="https://embed.odesli.co/?url=${encodeURIComponent(url)}&theme=dark" frameborder="0" allowtransparency allowfullscreen sandbox="allow-same-origin allow-scripts allow-presentation allow-popups allow-popups-to-escape-sandbox"></iframe></div>`
+    })
+    env.addFilter("sortArticles", (articles) => {
+        return articles.sort((a,b) => b.priority - a.priority);
     })
 }
 

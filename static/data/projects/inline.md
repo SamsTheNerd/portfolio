@@ -6,6 +6,7 @@
         <tag>mc-modding</tag>
         <tag>software</tag>
     </tags>
+    <priority>10</priority>
 </articlemeta>
 
 <center>
@@ -21,6 +22,7 @@ These hooks are placed so that they work for all in-game text, that includes cha
 Inline is now used by a number of mods such as:
 - [Hex Casting](https://modrinth.com/mod/hex-casting)
 - [Emojiless](https://modrinth.com/mod/emojiless)
+- [Potion Icons](https://samsthenerd.com/projects/potionicons)
 
 The mod also adds a number of its own player facing features. Check out the [Modrinth page](https://modrinth.com/mod/inline) for more information on how to use those as well as a [gallery](https://modrinth.com/mod/inline/gallery) of in-game images. 
 

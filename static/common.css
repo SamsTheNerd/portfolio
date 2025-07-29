@@ -351,6 +351,11 @@ footer *{
     flex-grow: 50;
 }
 
+.pdf-embed{
+    width: 100%;
+    height: 30rem;
+}
+
 @media (width <= 81rem) {
 
     #main-content{

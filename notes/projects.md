@@ -9,7 +9,7 @@
 ~ potion icons
 ~ month of swords
 ~ minegrapht
-- drapery?
+~ drapery?
 
 ## Web Dev
 ~ Quatalog
@@ -47,7 +47,11 @@
 - hoki
 
 ## Old
-- pico wordle - maybe ? would need to upload it and also it's not entirely finished
+~ pico wordle - maybe ? would need to upload it and also it's not entirely finished
 - voltorb flip solver (need to upload it) (webbed site + c++)
 - QR Picross? lol?
 - 
+
+## Teaching?
+~ mc workshop
+~ java build tools lecture

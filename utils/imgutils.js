@@ -7,7 +7,7 @@ var makeImage = (src, classesOpt, idOpt) => {
     var classesArray = classesOpt || []
     var classes = classesArray;
     try{
-        classes = classesArray.join(", ");
+        classes = classesArray.join(" ");
     } catch {}
     var url = src;
     var alt = "";
@@ -69,6 +69,24 @@ var makeImageGallery = (imgEntries, cssSettings) => {
     return htmlRes;
 }
 
+function makePDFEmbed(src, classesOpt, idOpt, innerElement = ""){
+    var classesArray = classesOpt || []
+    var classes = classesArray;
+    try{
+        classes = classesArray.join(" ");
+    } catch {}
+    var url = src;
+    if(src.substring(0, 4) != "http"){
+        url = "/assets/" + src;
+    }
+    var idString = "";
+    if(idOpt){
+        idString = `id="${idOpt}"`
+    }
+    return `<object ${idString} data="${url}" class="pdf-embed ${classes}" type="application/pdf">
+    ${innerElement}
+    </object>`
+}
 
 /**
  * An image entry 
@@ -81,5 +99,6 @@ var makeImageGallery = (imgEntries, cssSettings) => {
 
 module.exports = {
     "makeImage": makeImage,
-    "makeGallery": makeImageGallery
+    "makeGallery": makeImageGallery,
+    "makePDFEmbed": makePDFEmbed
 }
