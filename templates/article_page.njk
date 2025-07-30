@@ -21,7 +21,9 @@
             {% endif %}
         {% endif %}
     {% endif %}
-    <meta property="og:description" content="{{ project.summary }}" />
+    {% if project.description %}
+        <meta property="og:description" content="{{ project.description }}" />
+    {% endif %}
     <link rel="stylesheet" href="/articles.css">
 {% endblock %}
 
