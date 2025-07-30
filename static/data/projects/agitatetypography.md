@@ -1,6 +1,7 @@
 <articlemeta>
     <name>Agitate Typography</name>
     <keyart>typography/agitate_4.png</keyart>
+    <description>Typographic exercises related to the word agitate</description>
     <tags>
         <tag>art</tag>
         <tag>graphic-design</tag>
