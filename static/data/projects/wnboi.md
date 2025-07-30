@@ -6,6 +6,7 @@
         <tag>mc-modding</tag>
         <tag>software</tag>
     </tags>
+    <priority>1</priority>
 </articlemeta>
 
 <center>

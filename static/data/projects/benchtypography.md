@@ -5,7 +5,7 @@
         <tag>art</tag>
         <tag>graphic-design</tag>
     </tags>
-    <priority>2</priority>
+    <priority>3</priority>
 </articlemeta>
 
 {{ 

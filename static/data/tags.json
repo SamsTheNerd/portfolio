@@ -38,5 +38,15 @@
         "id": "teaching",
         "name": "Teaching",
         "theme": "pink"
+    },
+    "motion-graphics":{
+        "id": "motion-graphics",
+        "name": "Motion Graphics",
+        "theme": "red"
+    },
+    "screenprinting":{
+        "id": "screenprint",
+        "name": "Screenprinting",
+        "theme": "lime"
     }
 }

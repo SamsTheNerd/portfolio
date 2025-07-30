@@ -98,9 +98,12 @@ d8888b. d8888b.  .d88b.     d88b d88888b  .o88b. d888888b       .o88b.  .d8b.  d
     width: 100%;
     border-radius: inherit;
     overflow: hidden;
-    max-height: 35cqh;
+    height: 35cqh;
+    flex-grow: 100;
     display: grid;
     justify-content: center;
+    /* calc-size isn't widely supported yet (no firefox support rip) but does fix the issue of short keyart images having dead space */
+    height: calc-size(max-content, min(size, 35cqh));
 }
 
 .project-card-keyart{

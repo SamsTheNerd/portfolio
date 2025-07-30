@@ -13,6 +13,7 @@ var initFilters = (env) => {
     env.addFilter("mkImg", imgUtils.makeImage);
     env.addFilter("mkGallery", imgUtils.makeGallery);
     env.addFilter("mkPDFEmbed", imgUtils.makePDFEmbed);
+    env.addFilter("mkVideoEmbed", imgUtils.makeVideoEmbed);
     env.addFilter("youtubeEmbed", videoId => {
         return `<iframe class="youtubeEmbed videoEmbed" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
     })

@@ -88,6 +88,26 @@ function makePDFEmbed(src, classesOpt, idOpt, innerElement = ""){
     </object>`
 }
 
+function makeVideoEmbed(src, classesOpt, idOpt, innerElement = "", videoType="video/mp4"){
+    var classesArray = classesOpt || []
+    var classes = classesArray;
+    try{
+        classes = classesArray.join(" ");
+    } catch {}
+    var url = src;
+    if(src.substring(0, 4) != "http"){
+        url = "/assets/" + src;
+    }
+    var idString = "";
+    if(idOpt){
+        idString = `id="${idOpt}"`
+    }
+    return `<video ${idString} class="video-embed ${classes}" controls>
+        <source src="${url}" type="${videoType}">
+        ${innerElement}
+    </video>`
+}
+
 /**
  * An image entry 
  * @typedef {Object} ImgEntry
@@ -100,5 +120,6 @@ function makePDFEmbed(src, classesOpt, idOpt, innerElement = ""){
 module.exports = {
     "makeImage": makeImage,
     "makeGallery": makeImageGallery,
-    "makePDFEmbed": makePDFEmbed
+    "makePDFEmbed": makePDFEmbed,
+    "makeVideoEmbed": makeVideoEmbed
 }
