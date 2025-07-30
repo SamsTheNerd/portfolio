@@ -55,11 +55,6 @@ li{
     text-align: center;
 }
 
-#tag-list{
-    display:flex;
-    justify-content: center;
-    flex-flow: row wrap;
-}
 
 #social-links{
     margin-top:auto;

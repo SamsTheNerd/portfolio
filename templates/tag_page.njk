@@ -27,4 +27,12 @@
             {% endfor %}
         </div>
     {% endif %}
+    <div id="tag-browse" class="main-page-section">
+        <h2>Browse By Tags</h2>
+        <div id="tag-list">
+            {% for tagId in tags %}
+                {{ tagId | mkTag }}
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

@@ -14,7 +14,7 @@ var ctx = {
 // returns HTML string
 var generateTagPage = (tagData) => {
     // console.log(`making tag page: ${tagData.id}`)
-    return siteutils.nunjucksRenderAsync("tag_page.njk", {tag: tagData, ctx: ctx});
+    return siteutils.nunjucksRenderAsync("tag_page.njk", {tag: tagData, ctx: ctx, tags: Object.keys(tags)});
 }
 
 // returns HTML string

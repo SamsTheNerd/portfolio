@@ -45,7 +45,7 @@
         "theme": "red"
     },
     "screenprinting":{
-        "id": "screenprint",
+        "id": "screenprinting",
         "name": "Screenprinting",
         "theme": "lime"
     }

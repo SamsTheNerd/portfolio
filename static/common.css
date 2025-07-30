@@ -361,6 +361,25 @@ footer *{
     max-height: 40rem;
 }
 
+#tag-list{
+    display:flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+
+#tag-browse {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 80%;
+    position: relative;
+}
+
+#tag-browse h2{
+    text-align: center;
+}
+
 @media (width <= 81rem) {
 
     #main-content{
