@@ -3,7 +3,7 @@
     <icon>https://github.com/SamsTheNerd/LovelyNightEighties/blob/main/macos_terminal_icon.png?raw=true</icon>
     <description>A terminal/IDE theme based on Tomorrow Night Eighties</description>
     <tags>
-        <tag>art</tag>
+        <tag>graphic-design</tag>
         <tag>software</tag>
     </tags>
     <priority>1</priority>
