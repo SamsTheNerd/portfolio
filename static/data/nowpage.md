@@ -1,3 +1,95 @@
+#NOW: 2025-12-19#
+
+### Life Stuff
+
+Oh wow it's been a minute since updating this. I've been accepted into the compsci PhD program at RPI, yay! I'll be starting in January and I'll either be TAing or doing research, depending on if the research gets funded I think. I'll be happy with either. I'm excited to be back on campus and to be able to spend more time with my friends and make new friends and all that. I'm planning on joining the radio station club next semester too, my friend has been dragging me there more lately and the people there are nice. 
+
+The past few months have been a lot and had a lot of change but also kinda not really? I guess September and October had a lot of change and then November and December felt a bit more stagnant. In October I started working a retail job in a craft store and found that I quite liked it. I liked having a routine that got me out of the house. I liked having little tasks I can try to speedrun and get better at like stocking shelves and whatnot. I liked having socializing built into my day in a controlled way, kinda just being a shopkeeper NPC and not needing to worry about it but still getting to meet some cool people from time to time. I liked that it kept me a bit more active and on my feet for the better part of the day. I liked the small sense of community? continuity? whatever you want to call it, I liked seeing some of the same faces in the store every now and then, seeing the same faces each morning on the bus, saying hi to the same bus drivers each day, all that. Working in a craft store (and having an employee discount) encouraged me to try out some new crafts as well so that was cool. 
+
+Around November though I think I started to grow tired of it and go more into autopilot to get through the day. I didn't really have the time or energy outside of work to reliably do much fun or creative and I wasn't spending much time with friends. Idk, outside of just that job I'm trying to be more conscious about the routines and behaviors I fall into by default. I think I need more safeguards to keep myself present and alert in my life, maybe novelty's important to that. 
+
+Maybe this is oversharing for a public page like this, but whatever, I feel like talking about it. I think my relationship with anxiety has changed a lot in the past few months, I think mostly just from being pushed out of my comfort zone a lot more. I've gotten a lot more comfortable and confident with casual social interactions, spending time and Doing Things and going places on my own, and I guess just with spontaneity and trying things even if they're a little scary and unfamiliar. 
+
+Also I got a plant. She's a little pothos and I love her.
+
+{{ [{src:"nowpagecraftsandstuff/pothos.jpeg", description:""}] | mkGallery }}
+
+### Working on 
+
+I guess I've mostly been doing more arts and crafts stuff. Like I said before, working at a crafts store got me to try out more things but I didn't spend much time on most of them due to a lack of energy. I tried a bit of rubber block stamp carving, I had fun toddler-mode crayon time, oh I made a witch hat! I got into earring making. I think that's all the crafts? Here's some pictures of some of them. 
+
+{{ 
+    [
+        {src: "nowpagecraftsandstuff/stamps.jpeg", description:"stamps!"},
+        {src: "nowpagecraftsandstuff/witch_hat.jpeg", description:"the finished witch hat ! there's more pics on my instagram (same username as my website), don't feel like copying all of them to here"},
+        {src: "nowpagecraftsandstuff/pink_earrings.jpeg", description:"I was originally going to make a keychain with these beads and then realized I would much rather bend wire than tie string so I made earrings instead"},
+        {src: "nowpagecraftsandstuff/pink_blue_spiky.jpeg", description:"also originally planned to be a keychain"},
+        {src: "nowpagecraftsandstuff/nyx_moon.jpeg", description:"made these for a friend the other day! I quite like how they came out, I might make a similar pair for myself :p"},
+        {src: "nowpagecraftsandstuff/nyx_spiky.jpeg", description:"these were for the same friend. the red isn't really my vibe, but I do think they look cool"}
+    ] | mkGallery
+}}
+
+I also started learning how to make music. I haven't had really any formal music education since like,, music period in elementary school (which I absorbed none of), so I wasn't really sure where to start. But I'm having fun playing with my little noises. I downloaded [reaper](https://www.reaper.fm/), [vital](https://vital.audio/), and some drum samples and have just been playing with those and chopping up some other audio clips and whatnot. I started posting some stuff on soundcloud but it's under a different username since I'm kindaaa feeling weird about my online identity and the 'samsthenerd' username beng tied up in what I present on like my resume and stuff. idk. also that username I think just sounds cooler. also the noises aren't very,, good,, I'm solidly in the realm of play and can hear the parts I don't like but don't really have the knowledge on how to fix it. Anyways, if you're reading this and want to listen to the noises feel free to DM me I'll send it probably! Maybe one day I'll associate the two usernames more, but not right now, shrug emoji.
+
+### Media I'm Enjoying
+
+Since I haven't updated this in a while there's probably going to be some more here and some of it will be stuff from like september maybe, idk.
+
+#### Playing
+
+I have not been much of a gamer lately. I started silksong in mid september and stopped playing sometime in October I think? I got semi stuck at the last judge but also I just kinda got busy with work. I had a couple days where I got really into a scrabble-like roguelike called Rogue Words, cool game. I've been wanting to get back into Pokemon ROM hacks, but the tooling to convert ROMs to 3ds games is a pain to use since it's Windows only and I don't feel like booting into open_agb_firm every time I want to play a game. I downloaded [Lazarus](https://ko-fi.com/s/99192ec19d) but then the 1.1 update came out and I haven't had time to download and convert that. I might look into making a more compatible version of NSUI, we'll see. 
+
+<center>
+{{ "https://www.nintendo.com/us/store/products/hollow-knight-silksong-switch/" | mkOGLink }}
+{{ "https://apps.apple.com/be/app/rogue-words/id6670705088" | mkOGLink }}
+
+</center>
+
+#### Listening
+
+I've been listening to a lot more music lately and trying to pay more attention to what I'm hearing rather than more passively enjoying it. I had a week or two I was really into Skrillex, especially that song with Dylan Brady. I've been in a big Pink Pantheress vibe lately too. I think that Danny Brown album might be my favorite of this year, that or revenge seekerz maybe? I'll just list a bunch of stuff, go listen if you have time!
+
+<center>
+{{ "https://music.apple.com/us/album/fancy-that/1806614239" | musicLink }}
+{{ "https://music.apple.com/us/album/ep/1856018518" | musicLink }}
+{{ "https://music.apple.com/us/album/hit-me-where-it-hurts-x/1853163222?i=1853163496" | musicLink }}
+{{ "https://music.apple.com/us/album/alias-is-me/1851019131" | musicLink }}
+{{ "https://music.apple.com/us/album/dress-to-impress/1860989443" | musicLink }}
+{{ "https://music.apple.com/us/album/c0nstant-calamit%C3%A0/1854272261" | musicLink }}
+{{ "https://music.apple.com/us/album/stardust/1838052961" | musicLink }}
+{{ "https://music.apple.com/us/album/the-death-of-music/1834457962" | musicLink }}
+{{ "https://music.apple.com/us/album/swaggot/1837204022" | musicLink }}
+{{ "https://music.apple.com/us/album/deadbeat/1836226516" | musicLink }}
+{{ "https://music.apple.com/us/album/junk-drawer-vol-1/1658848827" | musicLink }}
+{{ "https://music.apple.com/us/album/1851833203" | musicLink }}
+{{ "https://music.apple.com/us/album/1677891608" | musicLink }}
+{{ "https://music.apple.com/us/album/2-the-bass-single/1852105543" | musicLink }}
+{{ "https://music.apple.com/us/album/harlecore/1547705208" | musicLink }}
+{{ "https://music.apple.com/us/album/dark-synthetics-remixes/1536145756" | musicLink }}
+</center>
+
+Also I found my old hot pink iPod nano, I think I'm gonna try to start using that more sometimes.
+
+#### Reading
+
+Not much! I read a long halloween over the course of a few weeks on my morning bus rides and then got trail of the catwoman but I kinda stopped reading in the mornings in favor of just listening to music.
+
+<center>
+{{ "https://www.dcuniverseinfinite.com/collections/batman-halloween" | mkOGLink }}
+{{ "https://www.dcuniverseinfinite.com/collections/story-trailof-catwoman" | mkOGLink }}
+</center>
+
+#### Watching
+
+I've mostly been watching youtube. I've been watching a lot of Smosh across their various channels. I've also been watching fionna and cake and talking about it with a friend that I'm not always the best at staying in touch with so that's been nice. I also binged Abbott Elementary and have been watching that as it airs (though I think I'm a few episodes behind now). Oh! I started rewatching Daredevil from season 2 as well, forgot about that, I kinda fell off around when the hand got introduced. 
+
+<center>
+{{ "https://www.youtube.com/smosh" | mkOGLink }}
+{{ "https://www.hbomax.com/shows/adventure-time-fionna-cake/ec92dad5-265d-4b09-a27e-c7f7629cdfc3" | mkOGLink }}
+{{ "https://abc.com/show/e4f28254-2fc4-4cc1-b9bb-eee0564c178e" | mkOGLink }}
+{{ "https://www.disneyplus.com/browse/entity-b03f0bdc-ebd5-44df-a16a-1a180a88873a" | mkOGLink }}
+</center>
+
 #NOW: 2025-9-12#
 
 ### Life Stuff
